@@ -3,7 +3,7 @@
 package phoebe
 
 import (
-	"github.com/stainless-sdks/phoebe-go/option"
+	"github.com/phoebe-bird/phoebe-go/option"
 )
 
 // RefService contains methods and other services that help with interacting with
