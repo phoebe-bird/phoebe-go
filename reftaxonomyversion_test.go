@@ -23,8 +23,9 @@ func TestRefTaxonomyVersionList(t *testing.T) {
 	}
 	client := phoebe.NewClient(
 		option.WithBaseURL(baseURL),
+		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.RefTaxonomy.Versions.List(context.TODO())
+	_, err := client.Ref.Taxonomy.Versions.List(context.TODO())
 	if err != nil {
 		var apierr *phoebe.Error
 		if errors.As(err, &apierr) {

@@ -23,8 +23,9 @@ func TestRefHotspotGeoGetWithOptionalParams(t *testing.T) {
 	}
 	client := phoebe.NewClient(
 		option.WithBaseURL(baseURL),
+		option.WithAPIKey("My API Key"),
 	)
-	err := client.Ref.Hotspots.Geo.Get(context.TODO(), phoebe.RefHotspotGeoGetParams{
+	err := client.Ref.Hotspot.Geo.Get(context.TODO(), phoebe.RefHotspotGeoGetParams{
 		Lat:  phoebe.F(-90.000000),
 		Lng:  phoebe.F(-180.000000),
 		Back: phoebe.F(int64(1)),

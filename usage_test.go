@@ -22,9 +22,11 @@ func TestUsage(t *testing.T) {
 	}
 	client := phoebe.NewClient(
 		option.WithBaseURL(baseURL),
+		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.RefTaxonomy.Versions.List(context.TODO())
+	refHotspotInfoGetResponse, err := client.Ref.Hotspot.Info.Get(context.TODO(), "L99381")
 	if err != nil {
 		t.Error(err)
 	}
+	t.Logf("%+v\n", refHotspotInfoGetResponse.CountryCode)
 }

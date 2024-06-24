@@ -3,7 +3,7 @@
 <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go"><img src="https://pkg.go.dev/badge/github.com/stainless-sdks/phoebe-go.svg" alt="Go Reference"></a>
 
 The Phoebe Go library provides convenient access to [the Phoebe REST
-API](https://docs.phoebe.com) from applications written in Go. The full API of this library can be found in [api.md](api.md).
+API](https://science.ebird.org/en/use-ebird-data/download-ebird-data-products) from applications written in Go. The full API of this library can be found in [api.md](api.md).
 
 It is generated with [Stainless](https://www.stainlessapi.com/).
 
@@ -34,16 +34,21 @@ package main
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/stainless-sdks/phoebe-go"
+	"github.com/stainless-sdks/phoebe-go/option"
 )
 
 func main() {
-	client := phoebe.NewClient()
-	refTaxonomyVersionListResponses, err := client.RefTaxonomy.Versions.List(context.TODO())
+	client := phoebe.NewClient(
+		option.WithAPIKey("My API Key"), // defaults to os.LookupEnv("EBIRD_API_KEY")
+	)
+	refHotspotInfoGetResponse, err := client.Ref.Hotspot.Info.Get(context.TODO(), "L99381")
 	if err != nil {
 		panic(err.Error())
 	}
+	fmt.Printf("%+v\n", refHotspotInfoGetResponse.CountryCode)
 }
 
 ```
@@ -132,7 +137,7 @@ client := phoebe.NewClient(
 	option.WithHeader("X-Some-Header", "custom_header_info"),
 )
 
-client.RefTaxonomy.Versions.List(context.TODO(), ...,
+client.Ref.Hotspot.Info.Get(context.TODO(), ...,
 	// Override the header
 	option.WithHeader("X-Some-Header", "some_other_custom_header_info"),
 	// Add an undocumented field to the request body, using sjson syntax
@@ -161,14 +166,14 @@ When the API returns a non-success status code, we return an error with type
 To handle errors, we recommend that you use the `errors.As` pattern:
 
 ```go
-_, err := client.RefTaxonomy.Versions.List(context.TODO())
+_, err := client.Ref.Hotspot.Info.Get(context.TODO(), "L99381")
 if err != nil {
 	var apierr *phoebe.Error
 	if errors.As(err, &apierr) {
 		println(string(apierr.DumpRequest(true)))  // Prints the serialized HTTP request
 		println(string(apierr.DumpResponse(true))) // Prints the serialized HTTP response
 	}
-	panic(err.Error()) // GET "/ref/taxonomy/versions": 400 Bad Request { ... }
+	panic(err.Error()) // GET "/ref/hotspot/info/{locId}": 400 Bad Request { ... }
 }
 ```
 
@@ -186,8 +191,9 @@ To set a per-retry timeout, use `option.WithRequestTimeout()`.
 // This sets the timeout for the request, including all the retries.
 ctx, cancel := context.WithTimeout(context.Background(), 5*time.Minute)
 defer cancel()
-client.RefTaxonomy.Versions.List(
+client.Ref.Hotspot.Info.Get(
 	ctx,
+	"L99381",
 	// This sets the per-retry timeout
 	option.WithRequestTimeout(20*time.Second),
 )
@@ -221,7 +227,11 @@ client := phoebe.NewClient(
 )
 
 // Override per-request:
-client.RefTaxonomy.Versions.List(context.TODO(), option.WithMaxRetries(5))
+client.Ref.Hotspot.Info.Get(
+	context.TODO(),
+	"L99381",
+	option.WithMaxRetries(5),
+)
 ```
 
 ### Making custom/undocumented requests

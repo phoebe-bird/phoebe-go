@@ -13,7 +13,7 @@ import (
 	"github.com/stainless-sdks/phoebe-go/option"
 )
 
-func TestRefHotspotInfoGet(t *testing.T) {
+func TestDataObservationRecentSpecieGetWithOptionalParams(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -25,7 +25,19 @@ func TestRefHotspotInfoGet(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Ref.Hotspot.Info.Get(context.TODO(), "string")
+	_, err := client.Data.Observations.Recent.Species.Get(
+		context.TODO(),
+		"string",
+		"string",
+		phoebe.DataObservationRecentSpecieGetParams{
+			Back:               phoebe.F(int64(1)),
+			Hotspot:            phoebe.F(true),
+			IncludeProvisional: phoebe.F(true),
+			MaxResults:         phoebe.F(int64(1)),
+			R:                  phoebe.F([]string{"string"}),
+			SppLocale:          phoebe.F("string"),
+		},
+	)
 	if err != nil {
 		var apierr *phoebe.Error
 		if errors.As(err, &apierr) {

@@ -7,10 +7,8 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
-	"net/url"
 
-	"github.com/stainless-sdks/phoebe-go/internal/apiquery"
-	"github.com/stainless-sdks/phoebe-go/internal/param"
+	"github.com/stainless-sdks/phoebe-go/internal/apijson"
 	"github.com/stainless-sdks/phoebe-go/internal/requestconfig"
 	"github.com/stainless-sdks/phoebe-go/option"
 )
@@ -23,7 +21,6 @@ import (
 // the [NewProductChecklistService] method instead.
 type ProductChecklistService struct {
 	Options []option.RequestOption
-	Summary *ProductChecklistSummaryService
 }
 
 // NewProductChecklistService generates a new service that applies the given
@@ -32,52 +29,130 @@ type ProductChecklistService struct {
 func NewProductChecklistService(opts ...option.RequestOption) (r *ProductChecklistService) {
 	r = &ProductChecklistService{}
 	r.Options = opts
-	r.Summary = NewProductChecklistSummaryService(opts...)
 	return
 }
 
-// Get information on the checklists submitted on a given date for a country or
-// region.
-func (r *ProductChecklistService) Get(ctx context.Context, regionCode string, y int64, m int64, d int64, query ProductChecklistGetParams, opts ...option.RequestOption) (err error) {
+// Get the details and observations of a checklist.
+//
+// #### Notes Do NOT use this to download large amounts of data. You will be banned if you do. In the fields for each observation, the following fields are duplicates or obsolete and will be removed at a future date: _howManyAtleast_, _howManyAtmost_, _hideFlags_, _projId_, _subId_, _subnational1Code_ and _present_.
+func (r *ProductChecklistService) View(ctx context.Context, subID string, opts ...option.RequestOption) (res *ProductChecklistViewResponse, err error) {
 	opts = append(r.Options[:], opts...)
-	opts = append([]option.RequestOption{option.WithHeader("Accept", "")}, opts...)
-	if regionCode == "" {
-		err = errors.New("missing required regionCode parameter")
+	if subID == "" {
+		err = errors.New("missing required subId parameter")
 		return
 	}
-	path := fmt.Sprintf("product/lists/%s/%v/%v/%v", regionCode, y, m, d)
-	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, nil, opts...)
+	path := fmt.Sprintf("product/checklist/view/%s", subID)
+	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return
 }
 
-type ProductChecklistGetParams struct {
-	// Only fetch this number of checklists.
-	MaxResults param.Field[int64] `query:"maxResults"`
-	// Order the results by the date of the checklist or by the date it was submitted.
-	SortKey param.Field[ProductChecklistGetParamsSortKey] `query:"sortKey"`
+type ProductChecklistViewResponse struct {
+	AllObsReported       bool                             `json:"allObsReported"`
+	ChecklistID          string                           `json:"checklistId"`
+	CreationDt           string                           `json:"creationDt"`
+	DurationHrs          float64                          `json:"durationHrs"`
+	LastEditedDt         string                           `json:"lastEditedDt"`
+	LocID                string                           `json:"locId"`
+	NumObservers         int64                            `json:"numObservers"`
+	Obs                  []ProductChecklistViewResponseOb `json:"obs"`
+	ObsDt                string                           `json:"obsDt"`
+	ObsTimeValid         bool                             `json:"obsTimeValid"`
+	ProjID               string                           `json:"projId"`
+	ProtocolID           string                           `json:"protocolId"`
+	SubID                string                           `json:"subId"`
+	SubmissionMethodCode string                           `json:"submissionMethodCode"`
+	Subnational1Code     string                           `json:"subnational1Code"`
+	UserDisplayName      string                           `json:"userDisplayName"`
+	JSON                 productChecklistViewResponseJSON `json:"-"`
 }
 
-// URLQuery serializes [ProductChecklistGetParams]'s query parameters as
-// `url.Values`.
-func (r ProductChecklistGetParams) URLQuery() (v url.Values) {
-	return apiquery.MarshalWithSettings(r, apiquery.QuerySettings{
-		ArrayFormat:  apiquery.ArrayQueryFormatComma,
-		NestedFormat: apiquery.NestedQueryFormatBrackets,
-	})
+// productChecklistViewResponseJSON contains the JSON metadata for the struct
+// [ProductChecklistViewResponse]
+type productChecklistViewResponseJSON struct {
+	AllObsReported       apijson.Field
+	ChecklistID          apijson.Field
+	CreationDt           apijson.Field
+	DurationHrs          apijson.Field
+	LastEditedDt         apijson.Field
+	LocID                apijson.Field
+	NumObservers         apijson.Field
+	Obs                  apijson.Field
+	ObsDt                apijson.Field
+	ObsTimeValid         apijson.Field
+	ProjID               apijson.Field
+	ProtocolID           apijson.Field
+	SubID                apijson.Field
+	SubmissionMethodCode apijson.Field
+	Subnational1Code     apijson.Field
+	UserDisplayName      apijson.Field
+	raw                  string
+	ExtraFields          map[string]apijson.Field
 }
 
-// Order the results by the date of the checklist or by the date it was submitted.
-type ProductChecklistGetParamsSortKey string
+func (r *ProductChecklistViewResponse) UnmarshalJSON(data []byte) (err error) {
+	return apijson.UnmarshalRoot(data, r)
+}
 
-const (
-	ProductChecklistGetParamsSortKeyObsDt      ProductChecklistGetParamsSortKey = "obs_dt"
-	ProductChecklistGetParamsSortKeyCreationDt ProductChecklistGetParamsSortKey = "creation_dt"
-)
+func (r productChecklistViewResponseJSON) RawJSON() string {
+	return r.raw
+}
 
-func (r ProductChecklistGetParamsSortKey) IsKnown() bool {
-	switch r {
-	case ProductChecklistGetParamsSortKeyObsDt, ProductChecklistGetParamsSortKeyCreationDt:
-		return true
-	}
-	return false
+type ProductChecklistViewResponseOb struct {
+	ObsAux      []ProductChecklistViewResponseObsObsAux `json:"obsAux"`
+	ObsDt       string                                  `json:"obsDt"`
+	ObsID       string                                  `json:"obsId"`
+	SpeciesCode string                                  `json:"speciesCode"`
+	JSON        productChecklistViewResponseObJSON      `json:"-"`
+}
+
+// productChecklistViewResponseObJSON contains the JSON metadata for the struct
+// [ProductChecklistViewResponseOb]
+type productChecklistViewResponseObJSON struct {
+	ObsAux      apijson.Field
+	ObsDt       apijson.Field
+	ObsID       apijson.Field
+	SpeciesCode apijson.Field
+	raw         string
+	ExtraFields map[string]apijson.Field
+}
+
+func (r *ProductChecklistViewResponseOb) UnmarshalJSON(data []byte) (err error) {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+func (r productChecklistViewResponseObJSON) RawJSON() string {
+	return r.raw
+}
+
+type ProductChecklistViewResponseObsObsAux struct {
+	AuxCode         string                                    `json:"auxCode"`
+	EntryMethodCode string                                    `json:"entryMethodCode"`
+	FieldName       string                                    `json:"fieldName"`
+	ObsID           string                                    `json:"obsId"`
+	SpeciesCode     string                                    `json:"speciesCode"`
+	SubID           string                                    `json:"subId"`
+	Value           string                                    `json:"value"`
+	JSON            productChecklistViewResponseObsObsAuxJSON `json:"-"`
+}
+
+// productChecklistViewResponseObsObsAuxJSON contains the JSON metadata for the
+// struct [ProductChecklistViewResponseObsObsAux]
+type productChecklistViewResponseObsObsAuxJSON struct {
+	AuxCode         apijson.Field
+	EntryMethodCode apijson.Field
+	FieldName       apijson.Field
+	ObsID           apijson.Field
+	SpeciesCode     apijson.Field
+	SubID           apijson.Field
+	Value           apijson.Field
+	raw             string
+	ExtraFields     map[string]apijson.Field
+}
+
+func (r *ProductChecklistViewResponseObsObsAux) UnmarshalJSON(data []byte) (err error) {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+func (r productChecklistViewResponseObsObsAuxJSON) RawJSON() string {
+	return r.raw
 }
