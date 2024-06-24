@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stainless-sdks/phoebe-go/internal/param"
+	"github.com/phoebe-bird/phoebe-go/internal/param"
 )
 
 type Struct struct {

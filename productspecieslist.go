@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/stainless-sdks/phoebe-go/internal/requestconfig"
-	"github.com/stainless-sdks/phoebe-go/option"
+	"github.com/phoebe-bird/phoebe-go/internal/requestconfig"
+	"github.com/phoebe-bird/phoebe-go/option"
 )
 
 // ProductSpeciesListService contains methods and other services that help with
