@@ -13,7 +13,7 @@ import (
 	"github.com/stainless-sdks/phoebe-go/option"
 )
 
-func TestRefHotspotInfoGet(t *testing.T) {
+func TestRefRegionAdjacentList(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -25,7 +25,7 @@ func TestRefHotspotInfoGet(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Ref.Hotspot.Info.Get(context.TODO(), "string")
+	_, err := client.Ref.Region.Adjacent.List(context.TODO(), "string")
 	if err != nil {
 		var apierr *phoebe.Error
 		if errors.As(err, &apierr) {

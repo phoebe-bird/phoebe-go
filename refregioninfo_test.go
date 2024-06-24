@@ -23,8 +23,9 @@ func TestRefRegionInfoGetWithOptionalParams(t *testing.T) {
 	}
 	client := phoebe.NewClient(
 		option.WithBaseURL(baseURL),
+		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.RefRegion.Info.Get(
+	_, err := client.Ref.Region.Info.Get(
 		context.TODO(),
 		"string",
 		phoebe.RefRegionInfoGetParams{

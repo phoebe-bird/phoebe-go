@@ -14,8 +14,8 @@ import (
 // the [NewRefService] method instead.
 type RefService struct {
 	Options  []option.RequestOption
-	Geo      *RefGeoService
-	Hotspots *RefHotspotService
+	Region   *RefRegionService
+	Hotspot  *RefHotspotService
 	Taxonomy *RefTaxonomyService
 }
 
@@ -25,8 +25,8 @@ type RefService struct {
 func NewRefService(opts ...option.RequestOption) (r *RefService) {
 	r = &RefService{}
 	r.Options = opts
-	r.Geo = NewRefGeoService(opts...)
-	r.Hotspots = NewRefHotspotService(opts...)
+	r.Region = NewRefRegionService(opts...)
+	r.Hotspot = NewRefHotspotService(opts...)
 	r.Taxonomy = NewRefTaxonomyService(opts...)
 	return
 }

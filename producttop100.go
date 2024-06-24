@@ -51,7 +51,7 @@ func NewProductTop100Service(opts ...option.RequestOption) (r *ProductTop100Serv
 // numSpecies - always zero when checklistSort parameter is true. Invalid
 // observations ARE included in this total numCompleteChecklists - always zero when
 // checklistSort parameter is false
-func (r *ProductTop100Service) List(ctx context.Context, regionCode string, y int64, m int64, d int64, query ProductTop100ListParams, opts ...option.RequestOption) (err error) {
+func (r *ProductTop100Service) Get(ctx context.Context, regionCode string, y int64, m int64, d int64, query ProductTop100GetParams, opts ...option.RequestOption) (err error) {
 	opts = append(r.Options[:], opts...)
 	opts = append([]option.RequestOption{option.WithHeader("Accept", "")}, opts...)
 	if regionCode == "" {
@@ -63,16 +63,15 @@ func (r *ProductTop100Service) List(ctx context.Context, regionCode string, y in
 	return
 }
 
-type ProductTop100ListParams struct {
+type ProductTop100GetParams struct {
 	// Only fetch this number of contributors.
 	MaxResults param.Field[int64] `query:"maxResults"`
 	// Order by number of complete checklists (cl) or by number of species seen (spp).
-	RankedBy param.Field[ProductTop100ListParamsRankedBy] `query:"rankedBy"`
+	RankedBy param.Field[ProductTop100GetParamsRankedBy] `query:"rankedBy"`
 }
 
-// URLQuery serializes [ProductTop100ListParams]'s query parameters as
-// `url.Values`.
-func (r ProductTop100ListParams) URLQuery() (v url.Values) {
+// URLQuery serializes [ProductTop100GetParams]'s query parameters as `url.Values`.
+func (r ProductTop100GetParams) URLQuery() (v url.Values) {
 	return apiquery.MarshalWithSettings(r, apiquery.QuerySettings{
 		ArrayFormat:  apiquery.ArrayQueryFormatComma,
 		NestedFormat: apiquery.NestedQueryFormatBrackets,
@@ -80,16 +79,16 @@ func (r ProductTop100ListParams) URLQuery() (v url.Values) {
 }
 
 // Order by number of complete checklists (cl) or by number of species seen (spp).
-type ProductTop100ListParamsRankedBy string
+type ProductTop100GetParamsRankedBy string
 
 const (
-	ProductTop100ListParamsRankedBySpp ProductTop100ListParamsRankedBy = "spp"
-	ProductTop100ListParamsRankedByCl  ProductTop100ListParamsRankedBy = "cl"
+	ProductTop100GetParamsRankedBySpp ProductTop100GetParamsRankedBy = "spp"
+	ProductTop100GetParamsRankedByCl  ProductTop100GetParamsRankedBy = "cl"
 )
 
-func (r ProductTop100ListParamsRankedBy) IsKnown() bool {
+func (r ProductTop100GetParamsRankedBy) IsKnown() bool {
 	switch r {
-	case ProductTop100ListParamsRankedBySpp, ProductTop100ListParamsRankedByCl:
+	case ProductTop100GetParamsRankedBySpp, ProductTop100GetParamsRankedByCl:
 		return true
 	}
 	return false

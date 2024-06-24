@@ -13,12 +13,12 @@ import (
 // automatically. You should not instantiate this service directly, and instead use
 // the [NewProductService] method instead.
 type ProductService struct {
-	Options    []option.RequestOption
-	Lists      *ProductListService
-	Top100     *ProductTop100Service
-	Checklists *ProductChecklistService
-	Species    *ProductSpecieService
-	Checklist  *ProductChecklistService
+	Options     []option.RequestOption
+	Lists       *ProductListService
+	Top100      *ProductTop100Service
+	Stats       *ProductStatService
+	SpeciesList *ProductSpeciesListService
+	Checklist   *ProductChecklistService
 }
 
 // NewProductService generates a new service that applies the given options to each
@@ -29,8 +29,8 @@ func NewProductService(opts ...option.RequestOption) (r *ProductService) {
 	r.Options = opts
 	r.Lists = NewProductListService(opts...)
 	r.Top100 = NewProductTop100Service(opts...)
-	r.Checklists = NewProductChecklistService(opts...)
-	r.Species = NewProductSpecieService(opts...)
+	r.Stats = NewProductStatService(opts...)
+	r.SpeciesList = NewProductSpeciesListService(opts...)
 	r.Checklist = NewProductChecklistService(opts...)
 	return
 }

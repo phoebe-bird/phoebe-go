@@ -39,7 +39,7 @@ func NewRefRegionListService(opts ...option.RequestOption) (r *RefRegionListServ
 // combinations of region type and region code are valid. You can fetch all the
 // subnational1 or subnational2 regions for a country however you can only specify
 // a region type of 'country' when using 'world' as a region code.
-func (r *RefRegionListService) Get(ctx context.Context, regionType string, parentRegionCode string, query RefRegionListGetParams, opts ...option.RequestOption) (res *[]RefRegionListGetResponse, err error) {
+func (r *RefRegionListService) List(ctx context.Context, regionType string, parentRegionCode string, query RefRegionListListParams, opts ...option.RequestOption) (res *[]RefRegionListListResponse, err error) {
 	opts = append(r.Options[:], opts...)
 	if regionType == "" {
 		err = errors.New("missing required regionType parameter")
@@ -54,36 +54,37 @@ func (r *RefRegionListService) Get(ctx context.Context, regionType string, paren
 	return
 }
 
-type RefRegionListGetResponse struct {
-	Code string                       `json:"code"`
-	Name string                       `json:"name"`
-	JSON refRegionListGetResponseJSON `json:"-"`
+type RefRegionListListResponse struct {
+	Code string                        `json:"code"`
+	Name string                        `json:"name"`
+	JSON refRegionListListResponseJSON `json:"-"`
 }
 
-// refRegionListGetResponseJSON contains the JSON metadata for the struct
-// [RefRegionListGetResponse]
-type refRegionListGetResponseJSON struct {
+// refRegionListListResponseJSON contains the JSON metadata for the struct
+// [RefRegionListListResponse]
+type refRegionListListResponseJSON struct {
 	Code        apijson.Field
 	Name        apijson.Field
 	raw         string
 	ExtraFields map[string]apijson.Field
 }
 
-func (r *RefRegionListGetResponse) UnmarshalJSON(data []byte) (err error) {
+func (r *RefRegionListListResponse) UnmarshalJSON(data []byte) (err error) {
 	return apijson.UnmarshalRoot(data, r)
 }
 
-func (r refRegionListGetResponseJSON) RawJSON() string {
+func (r refRegionListListResponseJSON) RawJSON() string {
 	return r.raw
 }
 
-type RefRegionListGetParams struct {
+type RefRegionListListParams struct {
 	// Fetch the records in CSV or JSON format.
-	Fmt param.Field[RefRegionListGetParamsFmt] `query:"fmt"`
+	Fmt param.Field[RefRegionListListParamsFmt] `query:"fmt"`
 }
 
-// URLQuery serializes [RefRegionListGetParams]'s query parameters as `url.Values`.
-func (r RefRegionListGetParams) URLQuery() (v url.Values) {
+// URLQuery serializes [RefRegionListListParams]'s query parameters as
+// `url.Values`.
+func (r RefRegionListListParams) URLQuery() (v url.Values) {
 	return apiquery.MarshalWithSettings(r, apiquery.QuerySettings{
 		ArrayFormat:  apiquery.ArrayQueryFormatComma,
 		NestedFormat: apiquery.NestedQueryFormatBrackets,
@@ -91,16 +92,16 @@ func (r RefRegionListGetParams) URLQuery() (v url.Values) {
 }
 
 // Fetch the records in CSV or JSON format.
-type RefRegionListGetParamsFmt string
+type RefRegionListListParamsFmt string
 
 const (
-	RefRegionListGetParamsFmtCsv  RefRegionListGetParamsFmt = "csv"
-	RefRegionListGetParamsFmtJson RefRegionListGetParamsFmt = "json"
+	RefRegionListListParamsFmtCsv  RefRegionListListParamsFmt = "csv"
+	RefRegionListListParamsFmtJson RefRegionListListParamsFmt = "json"
 )
 
-func (r RefRegionListGetParamsFmt) IsKnown() bool {
+func (r RefRegionListListParamsFmt) IsKnown() bool {
 	switch r {
-	case RefRegionListGetParamsFmtCsv, RefRegionListGetParamsFmtJson:
+	case RefRegionListListParamsFmtCsv, RefRegionListListParamsFmtJson:
 		return true
 	}
 	return false

@@ -13,9 +13,10 @@ import (
 // automatically. You should not instantiate this service directly, and instead use
 // the [NewRefRegionService] method instead.
 type RefRegionService struct {
-	Options []option.RequestOption
-	Info    *RefRegionInfoService
-	List    *RefRegionListService
+	Options  []option.RequestOption
+	Adjacent *RefRegionAdjacentService
+	Info     *RefRegionInfoService
+	List     *RefRegionListService
 }
 
 // NewRefRegionService generates a new service that applies the given options to
@@ -24,6 +25,7 @@ type RefRegionService struct {
 func NewRefRegionService(opts ...option.RequestOption) (r *RefRegionService) {
 	r = &RefRegionService{}
 	r.Options = opts
+	r.Adjacent = NewRefRegionAdjacentService(opts...)
 	r.Info = NewRefRegionInfoService(opts...)
 	r.List = NewRefRegionListService(opts...)
 	return

@@ -13,7 +13,7 @@ import (
 	"github.com/stainless-sdks/phoebe-go/option"
 )
 
-func TestProductChecklistGetWithOptionalParams(t *testing.T) {
+func TestProductChecklistView(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -23,18 +23,9 @@ func TestProductChecklistGetWithOptionalParams(t *testing.T) {
 	}
 	client := phoebe.NewClient(
 		option.WithBaseURL(baseURL),
+		option.WithAPIKey("My API Key"),
 	)
-	err := client.Product.Checklists.Get(
-		context.TODO(),
-		"string",
-		int64(0),
-		int64(1),
-		int64(1),
-		phoebe.ProductChecklistGetParams{
-			MaxResults: phoebe.F(int64(1)),
-			SortKey:    phoebe.F(phoebe.ProductChecklistGetParamsSortKeyObsDt),
-		},
-	)
+	_, err := client.Product.Checklist.View(context.TODO(), "string")
 	if err != nil {
 		var apierr *phoebe.Error
 		if errors.As(err, &apierr) {

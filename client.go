@@ -5,6 +5,7 @@ package phoebe
 import (
 	"context"
 	"net/http"
+	"os"
 
 	"github.com/stainless-sdks/phoebe-go/internal/requestconfig"
 	"github.com/stainless-sdks/phoebe-go/option"
@@ -14,20 +15,21 @@ import (
 // interacting with the phoebe API. You should not instantiate this client
 // directly, and instead use the [NewClient] method instead.
 type Client struct {
-	Options     []option.RequestOption
-	Data        *DataService
-	Product     *ProductService
-	Ref         *RefService
-	RefTaxonomy *RefTaxonomyService
-	RefRegion   *RefRegionService
+	Options []option.RequestOption
+	Data    *DataService
+	Product *ProductService
+	Ref     *RefService
 }
 
 // NewClient generates a new client with the default option read from the
-// environment (). The option passed in as arguments are applied after these
-// default arguments, and all option will be passed down to the services and
+// environment (EBIRD_API_KEY). The option passed in as arguments are applied after
+// these default arguments, and all option will be passed down to the services and
 // requests that this client makes.
 func NewClient(opts ...option.RequestOption) (r *Client) {
 	defaults := []option.RequestOption{option.WithEnvironmentProduction()}
+	if o, ok := os.LookupEnv("EBIRD_API_KEY"); ok {
+		defaults = append(defaults, option.WithAPIKey(o))
+	}
 	opts = append(defaults, opts...)
 
 	r = &Client{Options: opts}
@@ -35,8 +37,6 @@ func NewClient(opts ...option.RequestOption) (r *Client) {
 	r.Data = NewDataService(opts...)
 	r.Product = NewProductService(opts...)
 	r.Ref = NewRefService(opts...)
-	r.RefTaxonomy = NewRefTaxonomyService(opts...)
-	r.RefRegion = NewRefRegionService(opts...)
 
 	return
 }

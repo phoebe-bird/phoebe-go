@@ -23,6 +23,7 @@ func TestRefTaxonomyEbirdGetWithOptionalParams(t *testing.T) {
 	}
 	client := phoebe.NewClient(
 		option.WithBaseURL(baseURL),
+		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.Ref.Taxonomy.Ebird.Get(context.TODO(), phoebe.RefTaxonomyEbirdGetParams{
 		Cat:     phoebe.F("string"),

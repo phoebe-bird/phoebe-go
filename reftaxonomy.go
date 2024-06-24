@@ -13,9 +13,12 @@ import (
 // automatically. You should not instantiate this service directly, and instead use
 // the [NewRefTaxonomyService] method instead.
 type RefTaxonomyService struct {
-	Options    []option.RequestOption
-	Ebird      *RefTaxonomyEbirdService
-	Subspecies *RefTaxonomySubspecieService
+	Options       []option.RequestOption
+	Ebird         *RefTaxonomyEbirdService
+	Forms         *RefTaxonomyFormService
+	Locales       *RefTaxonomyLocaleService
+	Versions      *RefTaxonomyVersionService
+	SpeciesGroups *RefTaxonomySpeciesGroupService
 }
 
 // NewRefTaxonomyService generates a new service that applies the given options to
@@ -25,6 +28,9 @@ func NewRefTaxonomyService(opts ...option.RequestOption) (r *RefTaxonomyService)
 	r = &RefTaxonomyService{}
 	r.Options = opts
 	r.Ebird = NewRefTaxonomyEbirdService(opts...)
-	r.Subspecies = NewRefTaxonomySubspecieService(opts...)
+	r.Forms = NewRefTaxonomyFormService(opts...)
+	r.Locales = NewRefTaxonomyLocaleService(opts...)
+	r.Versions = NewRefTaxonomyVersionService(opts...)
+	r.SpeciesGroups = NewRefTaxonomySpeciesGroupService(opts...)
 	return
 }

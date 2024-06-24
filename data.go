@@ -13,9 +13,8 @@ import (
 // automatically. You should not instantiate this service directly, and instead use
 // the [NewDataService] method instead.
 type DataService struct {
-	Options []option.RequestOption
-	Obs     *DataObService
-	Nearest *DataNearestService
+	Options      []option.RequestOption
+	Observations *DataObservationService
 }
 
 // NewDataService generates a new service that applies the given options to each
@@ -24,7 +23,6 @@ type DataService struct {
 func NewDataService(opts ...option.RequestOption) (r *DataService) {
 	r = &DataService{}
 	r.Options = opts
-	r.Obs = NewDataObService(opts...)
-	r.Nearest = NewDataNearestService(opts...)
+	r.Observations = NewDataObservationService(opts...)
 	return
 }

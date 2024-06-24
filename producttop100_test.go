@@ -13,7 +13,7 @@ import (
 	"github.com/stainless-sdks/phoebe-go/option"
 )
 
-func TestProductTop100ListWithOptionalParams(t *testing.T) {
+func TestProductTop100GetWithOptionalParams(t *testing.T) {
 	baseURL := "http://localhost:4010"
 	if envURL, ok := os.LookupEnv("TEST_API_BASE_URL"); ok {
 		baseURL = envURL
@@ -23,16 +23,17 @@ func TestProductTop100ListWithOptionalParams(t *testing.T) {
 	}
 	client := phoebe.NewClient(
 		option.WithBaseURL(baseURL),
+		option.WithAPIKey("My API Key"),
 	)
-	err := client.Product.Top100.List(
+	err := client.Product.Top100.Get(
 		context.TODO(),
 		"string",
 		int64(0),
 		int64(1),
 		int64(1),
-		phoebe.ProductTop100ListParams{
+		phoebe.ProductTop100GetParams{
 			MaxResults: phoebe.F(int64(1)),
-			RankedBy:   phoebe.F(phoebe.ProductTop100ListParamsRankedBySpp),
+			RankedBy:   phoebe.F(phoebe.ProductTop100GetParamsRankedBySpp),
 		},
 	)
 	if err != nil {
