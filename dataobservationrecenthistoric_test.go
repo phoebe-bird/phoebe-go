@@ -25,7 +25,7 @@ func TestDataObservationRecentHistoricListWithOptionalParams(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	err := client.Data.Observations.Recent.Historic.List(
+	_, err := client.Data.Observations.Recent.Historic.List(
 		context.TODO(),
 		"string",
 		int64(0),

@@ -37,15 +37,14 @@ func NewDataObservationNearestGeoSpecieService(opts ...option.RequestOption) (r 
 // Find the nearest locations where a species has been seen recently. #### Notes
 // The species code is typically a 6-letter code, e.g. barswa for Barn Swallow. You
 // can get complete set of species code from the GET eBird Taxonomy end-point.
-func (r *DataObservationNearestGeoSpecieService) List(ctx context.Context, speciesCode string, query DataObservationNearestGeoSpecieListParams, opts ...option.RequestOption) (err error) {
+func (r *DataObservationNearestGeoSpecieService) List(ctx context.Context, speciesCode string, query DataObservationNearestGeoSpecieListParams, opts ...option.RequestOption) (res *[]Observation, err error) {
 	opts = append(r.Options[:], opts...)
-	opts = append([]option.RequestOption{option.WithHeader("Accept", "")}, opts...)
 	if speciesCode == "" {
 		err = errors.New("missing required speciesCode parameter")
 		return
 	}
 	path := fmt.Sprintf("data/nearest/geo/recent/%s", speciesCode)
-	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, nil, opts...)
+	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return
 }
 

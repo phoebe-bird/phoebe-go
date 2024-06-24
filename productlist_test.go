@@ -25,7 +25,7 @@ func TestProductListGetWithOptionalParams(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	err := client.Product.Lists.Get(
+	_, err := client.Product.Lists.Get(
 		context.TODO(),
 		"string",
 		phoebe.ProductListGetParams{

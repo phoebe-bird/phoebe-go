@@ -37,15 +37,14 @@ func NewProductListService(opts ...option.RequestOption) (r *ProductListService)
 }
 
 // Get information on the most recently submitted checklists for a region.
-func (r *ProductListService) Get(ctx context.Context, regionCode string, query ProductListGetParams, opts ...option.RequestOption) (err error) {
+func (r *ProductListService) Get(ctx context.Context, regionCode string, query ProductListGetParams, opts ...option.RequestOption) (res *[]Observation, err error) {
 	opts = append(r.Options[:], opts...)
-	opts = append([]option.RequestOption{option.WithHeader("Accept", "")}, opts...)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
 		return
 	}
 	path := fmt.Sprintf("product/lists/%s", regionCode)
-	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, nil, opts...)
+	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return
 }
 

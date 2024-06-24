@@ -28,7 +28,7 @@ Methods:
 
 Methods:
 
-- <code title="get /data/obs/{regionCode}/historic/{y}/{m}/{d}">client.Data.Observations.Recent.Historic.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#DataObservationRecentHistoricService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, regionCode <a href="https://pkg.go.dev/builtin#string">string</a>, y <a href="https://pkg.go.dev/builtin#int64">int64</a>, m <a href="https://pkg.go.dev/builtin#int64">int64</a>, d <a href="https://pkg.go.dev/builtin#int64">int64</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#DataObservationRecentHistoricListParams">DataObservationRecentHistoricListParams</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code>
+- <code title="get /data/obs/{regionCode}/historic/{y}/{m}/{d}">client.Data.Observations.Recent.Historic.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#DataObservationRecentHistoricService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, regionCode <a href="https://pkg.go.dev/builtin#string">string</a>, y <a href="https://pkg.go.dev/builtin#int64">int64</a>, m <a href="https://pkg.go.dev/builtin#int64">int64</a>, d <a href="https://pkg.go.dev/builtin#int64">int64</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#DataObservationRecentHistoricListParams">DataObservationRecentHistoricListParams</a>) ([]<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#Observation">Observation</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 ### Geo
 
@@ -48,7 +48,7 @@ Methods:
 
 Methods:
 
-- <code title="get /data/obs/geo/recent/notable">client.Data.Observations.Geo.Recent.Notable.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#DataObservationGeoRecentNotableService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#DataObservationGeoRecentNotableListParams">DataObservationGeoRecentNotableListParams</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code>
+- <code title="get /data/obs/geo/recent/notable">client.Data.Observations.Geo.Recent.Notable.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#DataObservationGeoRecentNotableService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#DataObservationGeoRecentNotableListParams">DataObservationGeoRecentNotableListParams</a>) ([]<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#Observation">Observation</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 ### Nearest
 
@@ -56,7 +56,7 @@ Methods:
 
 Methods:
 
-- <code title="get /data/nearest/geo/recent/{speciesCode}">client.Data.Observations.Nearest.GeoSpecies.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#DataObservationNearestGeoSpecieService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, speciesCode <a href="https://pkg.go.dev/builtin#string">string</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#DataObservationNearestGeoSpecieListParams">DataObservationNearestGeoSpecieListParams</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code>
+- <code title="get /data/nearest/geo/recent/{speciesCode}">client.Data.Observations.Nearest.GeoSpecies.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#DataObservationNearestGeoSpecieService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, speciesCode <a href="https://pkg.go.dev/builtin#string">string</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#DataObservationNearestGeoSpecieListParams">DataObservationNearestGeoSpecieListParams</a>) ([]<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#Observation">Observation</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 # Product
 
@@ -64,7 +64,7 @@ Methods:
 
 Methods:
 
-- <code title="get /product/lists/{regionCode}">client.Product.Lists.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductListService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, regionCode <a href="https://pkg.go.dev/builtin#string">string</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductListGetParams">ProductListGetParams</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code>
+- <code title="get /product/lists/{regionCode}">client.Product.Lists.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductListService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, regionCode <a href="https://pkg.go.dev/builtin#string">string</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductListGetParams">ProductListGetParams</a>) ([]<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#Observation">Observation</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 ### Historical
 

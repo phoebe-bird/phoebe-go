@@ -37,11 +37,10 @@ func NewDataObservationGeoRecentNotableService(opts ...option.RequestOption) (r 
 // coordinates. Notable observations can be for locally or nationally rare species
 // or are otherwise unusual, for example over-wintering birds in a species which is
 // normally only a summer visitor.
-func (r *DataObservationGeoRecentNotableService) List(ctx context.Context, query DataObservationGeoRecentNotableListParams, opts ...option.RequestOption) (err error) {
+func (r *DataObservationGeoRecentNotableService) List(ctx context.Context, query DataObservationGeoRecentNotableListParams, opts ...option.RequestOption) (res *[]Observation, err error) {
 	opts = append(r.Options[:], opts...)
-	opts = append([]option.RequestOption{option.WithHeader("Accept", "")}, opts...)
 	path := "data/obs/geo/recent/notable"
-	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, nil, opts...)
+	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return
 }
 
