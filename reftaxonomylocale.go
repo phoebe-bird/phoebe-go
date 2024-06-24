@@ -6,10 +6,10 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/stainless-sdks/phoebe-go/internal/apijson"
-	"github.com/stainless-sdks/phoebe-go/internal/param"
-	"github.com/stainless-sdks/phoebe-go/internal/requestconfig"
-	"github.com/stainless-sdks/phoebe-go/option"
+	"github.com/phoebe-bird/phoebe-go/internal/apijson"
+	"github.com/phoebe-bird/phoebe-go/internal/param"
+	"github.com/phoebe-bird/phoebe-go/internal/requestconfig"
+	"github.com/phoebe-bird/phoebe-go/option"
 )
 
 // RefTaxonomyLocaleService contains methods and other services that help with
