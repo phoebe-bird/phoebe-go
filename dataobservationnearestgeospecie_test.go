@@ -25,7 +25,7 @@ func TestDataObservationNearestGeoSpecieListWithOptionalParams(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	err := client.Data.Observations.Nearest.GeoSpecies.List(
+	_, err := client.Data.Observations.Nearest.GeoSpecies.List(
 		context.TODO(),
 		"string",
 		phoebe.DataObservationNearestGeoSpecieListParams{

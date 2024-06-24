@@ -39,15 +39,14 @@ func NewDataObservationRecentHistoricService(opts ...option.RequestOption) (r *D
 // latest observation on the date).
 //
 // #### Notes Responses may be cached for 30 minutes
-func (r *DataObservationRecentHistoricService) List(ctx context.Context, regionCode string, y int64, m int64, d int64, query DataObservationRecentHistoricListParams, opts ...option.RequestOption) (err error) {
+func (r *DataObservationRecentHistoricService) List(ctx context.Context, regionCode string, y int64, m int64, d int64, query DataObservationRecentHistoricListParams, opts ...option.RequestOption) (res *[]Observation, err error) {
 	opts = append(r.Options[:], opts...)
-	opts = append([]option.RequestOption{option.WithHeader("Accept", "")}, opts...)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
 		return
 	}
 	path := fmt.Sprintf("data/obs/%s/historic/%v/%v/%v", regionCode, y, m, d)
-	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, nil, opts...)
+	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return
 }
 

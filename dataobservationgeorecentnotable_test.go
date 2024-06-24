@@ -25,7 +25,7 @@ func TestDataObservationGeoRecentNotableListWithOptionalParams(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	err := client.Data.Observations.Geo.Recent.Notable.List(context.TODO(), phoebe.DataObservationGeoRecentNotableListParams{
+	_, err := client.Data.Observations.Geo.Recent.Notable.List(context.TODO(), phoebe.DataObservationGeoRecentNotableListParams{
 		Lat:        phoebe.F(-90.000000),
 		Lng:        phoebe.F(-180.000000),
 		Back:       phoebe.F(int64(1)),
