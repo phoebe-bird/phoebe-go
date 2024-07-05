@@ -35,14 +35,13 @@ func NewProductSpeciesListService(opts ...option.RequestOption) (r *ProductSpeci
 // taxa only)
 //
 // #### Notes The results are usually updated every 10 seconds for locations, every day for larger regions.
-func (r *ProductSpeciesListService) List(ctx context.Context, regionCode string, opts ...option.RequestOption) (err error) {
+func (r *ProductSpeciesListService) List(ctx context.Context, regionCode string, opts ...option.RequestOption) (res *[]string, err error) {
 	opts = append(r.Options[:], opts...)
-	opts = append([]option.RequestOption{option.WithHeader("Accept", "")}, opts...)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
 		return
 	}
 	path := fmt.Sprintf("product/spplist/%s", regionCode)
-	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, nil, opts...)
+	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return
 }

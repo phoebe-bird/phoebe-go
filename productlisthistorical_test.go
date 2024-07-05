@@ -25,7 +25,7 @@ func TestProductListHistoricalGetWithOptionalParams(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	err := client.Product.Lists.Historical.Get(
+	_, err := client.Product.Lists.Historical.Get(
 		context.TODO(),
 		"string",
 		int64(0),

@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"net/url"
 
+	"github.com/stainless-sdks/phoebe-go/internal/apijson"
 	"github.com/stainless-sdks/phoebe-go/internal/apiquery"
 	"github.com/stainless-sdks/phoebe-go/internal/param"
 	"github.com/stainless-sdks/phoebe-go/internal/requestconfig"
@@ -51,16 +52,46 @@ func NewProductTop100Service(opts ...option.RequestOption) (r *ProductTop100Serv
 // numSpecies - always zero when checklistSort parameter is true. Invalid
 // observations ARE included in this total numCompleteChecklists - always zero when
 // checklistSort parameter is false
-func (r *ProductTop100Service) Get(ctx context.Context, regionCode string, y int64, m int64, d int64, query ProductTop100GetParams, opts ...option.RequestOption) (err error) {
+func (r *ProductTop100Service) Get(ctx context.Context, regionCode string, y int64, m int64, d int64, query ProductTop100GetParams, opts ...option.RequestOption) (res *[]ProductTop100GetResponse, err error) {
 	opts = append(r.Options[:], opts...)
-	opts = append([]option.RequestOption{option.WithHeader("Accept", "")}, opts...)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
 		return
 	}
 	path := fmt.Sprintf("product/top100/%s/%v/%v/%v", regionCode, y, m, d)
-	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, nil, opts...)
+	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return
+}
+
+type ProductTop100GetResponse struct {
+	NumCompleteChecklists int64                        `json:"numCompleteChecklists"`
+	NumSpecies            int64                        `json:"numSpecies"`
+	ProfileHandle         string                       `json:"profileHandle"`
+	RowNum                int64                        `json:"rowNum"`
+	UserDisplayName       string                       `json:"userDisplayName"`
+	UserID                string                       `json:"userId"`
+	JSON                  productTop100GetResponseJSON `json:"-"`
+}
+
+// productTop100GetResponseJSON contains the JSON metadata for the struct
+// [ProductTop100GetResponse]
+type productTop100GetResponseJSON struct {
+	NumCompleteChecklists apijson.Field
+	NumSpecies            apijson.Field
+	ProfileHandle         apijson.Field
+	RowNum                apijson.Field
+	UserDisplayName       apijson.Field
+	UserID                apijson.Field
+	raw                   string
+	ExtraFields           map[string]apijson.Field
+}
+
+func (r *ProductTop100GetResponse) UnmarshalJSON(data []byte) (err error) {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+func (r productTop100GetResponseJSON) RawJSON() string {
+	return r.raw
 }
 
 type ProductTop100GetParams struct {

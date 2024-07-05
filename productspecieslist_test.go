@@ -25,7 +25,7 @@ func TestProductSpeciesListList(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	err := client.Product.SpeciesList.List(context.TODO(), "string")
+	_, err := client.Product.SpeciesList.List(context.TODO(), "string")
 	if err != nil {
 		var apierr *phoebe.Error
 		if errors.As(err, &apierr) {
