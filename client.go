@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/phoebe-bird/phoebe-go/internal/requestconfig"
-	"github.com/phoebe-bird/phoebe-go/option"
+	"github.com/stainless-sdks/phoebe-go/internal/requestconfig"
+	"github.com/stainless-sdks/phoebe-go/option"
 )
 
 // Client creates a struct with services and top level methods that help with

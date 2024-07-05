@@ -17,10 +17,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/phoebe-bird/phoebe-go/internal"
-	"github.com/phoebe-bird/phoebe-go/internal/apierror"
-	"github.com/phoebe-bird/phoebe-go/internal/apiform"
-	"github.com/phoebe-bird/phoebe-go/internal/apiquery"
+	"github.com/stainless-sdks/phoebe-go/internal"
+	"github.com/stainless-sdks/phoebe-go/internal/apierror"
+	"github.com/stainless-sdks/phoebe-go/internal/apiform"
+	"github.com/stainless-sdks/phoebe-go/internal/apiquery"
 )
 
 func getDefaultHeaders() map[string]string {

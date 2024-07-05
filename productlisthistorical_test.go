@@ -8,9 +8,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/phoebe-bird/phoebe-go"
-	"github.com/phoebe-bird/phoebe-go/internal/testutil"
-	"github.com/phoebe-bird/phoebe-go/option"
+	"github.com/stainless-sdks/phoebe-go"
+	"github.com/stainless-sdks/phoebe-go/internal/testutil"
+	"github.com/stainless-sdks/phoebe-go/option"
 )
 
 func TestProductListHistoricalGetWithOptionalParams(t *testing.T) {

@@ -9,10 +9,10 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/phoebe-bird/phoebe-go/internal/apiquery"
-	"github.com/phoebe-bird/phoebe-go/internal/param"
-	"github.com/phoebe-bird/phoebe-go/internal/requestconfig"
-	"github.com/phoebe-bird/phoebe-go/option"
+	"github.com/stainless-sdks/phoebe-go/internal/apiquery"
+	"github.com/stainless-sdks/phoebe-go/internal/param"
+	"github.com/stainless-sdks/phoebe-go/internal/requestconfig"
+	"github.com/stainless-sdks/phoebe-go/option"
 )
 
 // DataObservationRecentHistoricService contains methods and other services that
