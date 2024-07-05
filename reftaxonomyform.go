@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/phoebe-bird/phoebe-go/internal/requestconfig"
-	"github.com/phoebe-bird/phoebe-go/option"
+	"github.com/stainless-sdks/phoebe-go/internal/requestconfig"
+	"github.com/stainless-sdks/phoebe-go/option"
 )
 
 // RefTaxonomyFormService contains methods and other services that help with

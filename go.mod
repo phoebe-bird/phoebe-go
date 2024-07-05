@@ -1,4 +1,4 @@
-module github.com/phoebe-bird/phoebe-go
+module github.com/stainless-sdks/phoebe-go
 
 go 1.19
 

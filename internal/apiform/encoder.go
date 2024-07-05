@@ -13,7 +13,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/phoebe-bird/phoebe-go/internal/param"
+	"github.com/stainless-sdks/phoebe-go/internal/param"
 )
 
 var encoders sync.Map // map[encoderEntry]encoderFunc

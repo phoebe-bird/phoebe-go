@@ -3,7 +3,7 @@
 package phoebe
 
 import (
-	"github.com/phoebe-bird/phoebe-go/option"
+	"github.com/stainless-sdks/phoebe-go/option"
 )
 
 // DataService contains methods and other services that help with interacting with
