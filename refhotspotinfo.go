@@ -51,14 +51,16 @@ type RefHotspotInfoGetResponse struct {
 	CountryName      string                        `json:"countryName"`
 	HierarchicalName string                        `json:"hierarchicalName"`
 	IsHotspot        bool                          `json:"isHotspot"`
+	Lat              float64                       `json:"lat"`
 	Latitude         float64                       `json:"latitude"`
+	Lng              float64                       `json:"lng"`
 	LocID            string                        `json:"locId"`
+	LocID            string                        `json:"locID"`
+	LocName          string                        `json:"locName"`
 	Longitude        float64                       `json:"longitude"`
 	Name             string                        `json:"name"`
 	Subnational1Code string                        `json:"subnational1Code"`
 	Subnational1Name string                        `json:"subnational1Name"`
-	Subnational2Code string                        `json:"subnational2Code"`
-	Subnational2Name string                        `json:"subnational2Name"`
 	JSON             refHotspotInfoGetResponseJSON `json:"-"`
 }
 
@@ -69,14 +71,16 @@ type refHotspotInfoGetResponseJSON struct {
 	CountryName      apijson.Field
 	HierarchicalName apijson.Field
 	IsHotspot        apijson.Field
+	Lat              apijson.Field
 	Latitude         apijson.Field
+	Lng              apijson.Field
 	LocID            apijson.Field
+	LocID            apijson.Field
+	LocName          apijson.Field
 	Longitude        apijson.Field
 	Name             apijson.Field
 	Subnational1Code apijson.Field
 	Subnational1Name apijson.Field
-	Subnational2Code apijson.Field
-	Subnational2Name apijson.Field
 	raw              string
 	ExtraFields      map[string]apijson.Field
 }

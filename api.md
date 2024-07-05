@@ -62,33 +62,49 @@ Methods:
 
 ## Lists
 
+Response Types:
+
+- <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductListGetResponse">ProductListGetResponse</a>
+
 Methods:
 
-- <code title="get /product/lists/{regionCode}">client.Product.Lists.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductListService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, regionCode <a href="https://pkg.go.dev/builtin#string">string</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductListGetParams">ProductListGetParams</a>) ([]<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#Observation">Observation</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+- <code title="get /product/lists/{regionCode}">client.Product.Lists.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductListService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, regionCode <a href="https://pkg.go.dev/builtin#string">string</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductListGetParams">ProductListGetParams</a>) ([]<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductListGetResponse">ProductListGetResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 ### Historical
 
+Response Types:
+
+- <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductListHistoricalGetResponse">ProductListHistoricalGetResponse</a>
+
 Methods:
 
-- <code title="get /product/lists/{regionCode}/{y}/{m}/{d}">client.Product.Lists.Historical.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductListHistoricalService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, regionCode <a href="https://pkg.go.dev/builtin#string">string</a>, y <a href="https://pkg.go.dev/builtin#int64">int64</a>, m <a href="https://pkg.go.dev/builtin#int64">int64</a>, d <a href="https://pkg.go.dev/builtin#int64">int64</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductListHistoricalGetParams">ProductListHistoricalGetParams</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code>
+- <code title="get /product/lists/{regionCode}/{y}/{m}/{d}">client.Product.Lists.Historical.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductListHistoricalService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, regionCode <a href="https://pkg.go.dev/builtin#string">string</a>, y <a href="https://pkg.go.dev/builtin#int64">int64</a>, m <a href="https://pkg.go.dev/builtin#int64">int64</a>, d <a href="https://pkg.go.dev/builtin#int64">int64</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductListHistoricalGetParams">ProductListHistoricalGetParams</a>) ([]<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductListHistoricalGetResponse">ProductListHistoricalGetResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 ## Top100
 
+Response Types:
+
+- <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductTop100GetResponse">ProductTop100GetResponse</a>
+
 Methods:
 
-- <code title="get /product/top100/{regionCode}/{y}/{m}/{d}">client.Product.Top100.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductTop100Service.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, regionCode <a href="https://pkg.go.dev/builtin#string">string</a>, y <a href="https://pkg.go.dev/builtin#int64">int64</a>, m <a href="https://pkg.go.dev/builtin#int64">int64</a>, d <a href="https://pkg.go.dev/builtin#int64">int64</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductTop100GetParams">ProductTop100GetParams</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code>
+- <code title="get /product/top100/{regionCode}/{y}/{m}/{d}">client.Product.Top100.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductTop100Service.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, regionCode <a href="https://pkg.go.dev/builtin#string">string</a>, y <a href="https://pkg.go.dev/builtin#int64">int64</a>, m <a href="https://pkg.go.dev/builtin#int64">int64</a>, d <a href="https://pkg.go.dev/builtin#int64">int64</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductTop100GetParams">ProductTop100GetParams</a>) ([]<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductTop100GetResponse">ProductTop100GetResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 ## Stats
 
+Response Types:
+
+- <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductStatGetResponse">ProductStatGetResponse</a>
+
 Methods:
 
-- <code title="get /product/stats/{regionCode}/{y}/{m}/{d}">client.Product.Stats.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductStatService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, regionCode <a href="https://pkg.go.dev/builtin#string">string</a>, y <a href="https://pkg.go.dev/builtin#int64">int64</a>, m <a href="https://pkg.go.dev/builtin#int64">int64</a>, d <a href="https://pkg.go.dev/builtin#int64">int64</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code>
+- <code title="get /product/stats/{regionCode}/{y}/{m}/{d}">client.Product.Stats.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductStatService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, regionCode <a href="https://pkg.go.dev/builtin#string">string</a>, y <a href="https://pkg.go.dev/builtin#int64">int64</a>, m <a href="https://pkg.go.dev/builtin#int64">int64</a>, d <a href="https://pkg.go.dev/builtin#int64">int64</a>) (<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductStatGetResponse">ProductStatGetResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 ## SpeciesList
 
 Methods:
 
-- <code title="get /product/spplist/{regionCode}">client.Product.SpeciesList.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductSpeciesListService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, regionCode <a href="https://pkg.go.dev/builtin#string">string</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code>
+- <code title="get /product/spplist/{regionCode}">client.Product.SpeciesList.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#ProductSpeciesListService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, regionCode <a href="https://pkg.go.dev/builtin#string">string</a>) ([]<a href="https://pkg.go.dev/builtin#string">string</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 ## Checklist
 
@@ -136,15 +152,23 @@ Methods:
 
 ## Hotspot
 
+Response Types:
+
+- <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#RefHotspotListResponse">RefHotspotListResponse</a>
+
 Methods:
 
-- <code title="get /ref/hotspot/{regionCode}">client.Ref.Hotspot.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#RefHotspotService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, regionCode <a href="https://pkg.go.dev/builtin#string">string</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#RefHotspotListParams">RefHotspotListParams</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code>
+- <code title="get /ref/hotspot/{regionCode}">client.Ref.Hotspot.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#RefHotspotService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, regionCode <a href="https://pkg.go.dev/builtin#string">string</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#RefHotspotListParams">RefHotspotListParams</a>) ([]<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#RefHotspotListResponse">RefHotspotListResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 ### Geo
 
+Response Types:
+
+- <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#RefHotspotGeoGetResponse">RefHotspotGeoGetResponse</a>
+
 Methods:
 
-- <code title="get /ref/hotspot/geo">client.Ref.Hotspot.Geo.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#RefHotspotGeoService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#RefHotspotGeoGetParams">RefHotspotGeoGetParams</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code>
+- <code title="get /ref/hotspot/geo">client.Ref.Hotspot.Geo.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#RefHotspotGeoService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#RefHotspotGeoGetParams">RefHotspotGeoGetParams</a>) ([]<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#RefHotspotGeoGetResponse">RefHotspotGeoGetResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 ### Info
 
@@ -160,9 +184,13 @@ Methods:
 
 ### Ebird
 
+Response Types:
+
+- <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#RefTaxonomyEbirdGetResponse">RefTaxonomyEbirdGetResponse</a>
+
 Methods:
 
-- <code title="get /ref/taxonomy/ebird">client.Ref.Taxonomy.Ebird.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#RefTaxonomyEbirdService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#RefTaxonomyEbirdGetParams">RefTaxonomyEbirdGetParams</a>) (<a href="https://pkg.go.dev/builtin#string">string</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+- <code title="get /ref/taxonomy/ebird">client.Ref.Taxonomy.Ebird.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#RefTaxonomyEbirdService.Get">Get</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, query <a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#RefTaxonomyEbirdGetParams">RefTaxonomyEbirdGetParams</a>) ([]<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go#RefTaxonomyEbirdGetResponse">RefTaxonomyEbirdGetResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 ### Forms
 

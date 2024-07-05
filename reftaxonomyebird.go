@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/url"
 
+	"github.com/stainless-sdks/phoebe-go/internal/apijson"
 	"github.com/stainless-sdks/phoebe-go/internal/apiquery"
 	"github.com/stainless-sdks/phoebe-go/internal/param"
 	"github.com/stainless-sdks/phoebe-go/internal/requestconfig"
@@ -36,12 +37,54 @@ func NewRefTaxonomyEbirdService(opts ...option.RequestOption) (r *RefTaxonomyEbi
 // species code for example, barswa for Barn Swallow. You can download the taxonomy
 // for selected species using the _species_ query parameter with a comma separating
 // each code. Otherwise the full taxonomy is downloaded.
-func (r *RefTaxonomyEbirdService) Get(ctx context.Context, query RefTaxonomyEbirdGetParams, opts ...option.RequestOption) (res *string, err error) {
+func (r *RefTaxonomyEbirdService) Get(ctx context.Context, query RefTaxonomyEbirdGetParams, opts ...option.RequestOption) (res *[]RefTaxonomyEbirdGetResponse, err error) {
 	opts = append(r.Options[:], opts...)
-	opts = append([]option.RequestOption{option.WithHeader("Accept", "text/plain")}, opts...)
 	path := "ref/taxonomy/ebird"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return
+}
+
+type RefTaxonomyEbirdGetResponse struct {
+	BandingCodes  []string                        `json:"bandingCodes"`
+	Category      string                          `json:"category"`
+	ComName       string                          `json:"comName"`
+	ComNameCodes  []string                        `json:"comNameCodes"`
+	FamilyCode    string                          `json:"familyCode"`
+	FamilyComName string                          `json:"familyComName"`
+	FamilySciName string                          `json:"familySciName"`
+	Order         string                          `json:"order"`
+	SciName       string                          `json:"sciName"`
+	SciNameCodes  []string                        `json:"sciNameCodes"`
+	SpeciesCode   string                          `json:"speciesCode"`
+	TaxonOrder    int64                           `json:"taxonOrder"`
+	JSON          refTaxonomyEbirdGetResponseJSON `json:"-"`
+}
+
+// refTaxonomyEbirdGetResponseJSON contains the JSON metadata for the struct
+// [RefTaxonomyEbirdGetResponse]
+type refTaxonomyEbirdGetResponseJSON struct {
+	BandingCodes  apijson.Field
+	Category      apijson.Field
+	ComName       apijson.Field
+	ComNameCodes  apijson.Field
+	FamilyCode    apijson.Field
+	FamilyComName apijson.Field
+	FamilySciName apijson.Field
+	Order         apijson.Field
+	SciName       apijson.Field
+	SciNameCodes  apijson.Field
+	SpeciesCode   apijson.Field
+	TaxonOrder    apijson.Field
+	raw           string
+	ExtraFields   map[string]apijson.Field
+}
+
+func (r *RefTaxonomyEbirdGetResponse) UnmarshalJSON(data []byte) (err error) {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+func (r refTaxonomyEbirdGetResponseJSON) RawJSON() string {
+	return r.raw
 }
 
 type RefTaxonomyEbirdGetParams struct {

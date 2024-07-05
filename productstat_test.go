@@ -25,7 +25,7 @@ func TestProductStatGet(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	err := client.Product.Stats.Get(
+	_, err := client.Product.Stats.Get(
 		context.TODO(),
 		"string",
 		int64(0),

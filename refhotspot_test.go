@@ -25,7 +25,7 @@ func TestRefHotspotListWithOptionalParams(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	err := client.Ref.Hotspot.List(
+	_, err := client.Ref.Hotspot.List(
 		context.TODO(),
 		"string",
 		phoebe.RefHotspotListParams{

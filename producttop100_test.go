@@ -25,7 +25,7 @@ func TestProductTop100GetWithOptionalParams(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	err := client.Product.Top100.Get(
+	_, err := client.Product.Top100.Get(
 		context.TODO(),
 		"string",
 		int64(0),

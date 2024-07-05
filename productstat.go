@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/stainless-sdks/phoebe-go/internal/apijson"
 	"github.com/stainless-sdks/phoebe-go/internal/requestconfig"
 	"github.com/stainless-sdks/phoebe-go/option"
 )
@@ -35,14 +36,38 @@ func NewProductStatService(opts ...option.RequestOption) (r *ProductStatService)
 // contributors on a given date for a country or region.
 //
 // #### Notes The results are updated every 15 minutes.
-func (r *ProductStatService) Get(ctx context.Context, regionCode string, y int64, m int64, d int64, opts ...option.RequestOption) (err error) {
+func (r *ProductStatService) Get(ctx context.Context, regionCode string, y int64, m int64, d int64, opts ...option.RequestOption) (res *ProductStatGetResponse, err error) {
 	opts = append(r.Options[:], opts...)
-	opts = append([]option.RequestOption{option.WithHeader("Accept", "")}, opts...)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
 		return
 	}
 	path := fmt.Sprintf("product/stats/%s/%v/%v/%v", regionCode, y, m, d)
-	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, nil, opts...)
+	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return
+}
+
+type ProductStatGetResponse struct {
+	NumChecklists   int64                      `json:"numChecklists"`
+	NumContributors int64                      `json:"numContributors"`
+	NumSpecies      int64                      `json:"numSpecies"`
+	JSON            productStatGetResponseJSON `json:"-"`
+}
+
+// productStatGetResponseJSON contains the JSON metadata for the struct
+// [ProductStatGetResponse]
+type productStatGetResponseJSON struct {
+	NumChecklists   apijson.Field
+	NumContributors apijson.Field
+	NumSpecies      apijson.Field
+	raw             string
+	ExtraFields     map[string]apijson.Field
+}
+
+func (r *ProductStatGetResponse) UnmarshalJSON(data []byte) (err error) {
+	return apijson.UnmarshalRoot(data, r)
+}
+
+func (r productStatGetResponseJSON) RawJSON() string {
+	return r.raw
 }
