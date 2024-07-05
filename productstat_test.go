@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package phoebe_test
+package phoebebird_test
 
 import (
 	"context"
@@ -8,9 +8,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/stainless-sdks/phoebe-go"
-	"github.com/stainless-sdks/phoebe-go/internal/testutil"
-	"github.com/stainless-sdks/phoebe-go/option"
+	"github.com/phoebe-bird/phoebe-go"
+	"github.com/phoebe-bird/phoebe-go/internal/testutil"
+	"github.com/phoebe-bird/phoebe-go/option"
 )
 
 func TestProductStatGet(t *testing.T) {
@@ -21,7 +21,7 @@ func TestProductStatGet(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := phoebe.NewClient(
+	client := phoebebird.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
@@ -33,7 +33,7 @@ func TestProductStatGet(t *testing.T) {
 		int64(1),
 	)
 	if err != nil {
-		var apierr *phoebe.Error
+		var apierr *phoebebird.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}

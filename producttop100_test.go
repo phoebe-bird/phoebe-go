@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package phoebe_test
+package phoebebird_test
 
 import (
 	"context"
@@ -8,9 +8,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/stainless-sdks/phoebe-go"
-	"github.com/stainless-sdks/phoebe-go/internal/testutil"
-	"github.com/stainless-sdks/phoebe-go/option"
+	"github.com/phoebe-bird/phoebe-go"
+	"github.com/phoebe-bird/phoebe-go/internal/testutil"
+	"github.com/phoebe-bird/phoebe-go/option"
 )
 
 func TestProductTop100GetWithOptionalParams(t *testing.T) {
@@ -21,7 +21,7 @@ func TestProductTop100GetWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := phoebe.NewClient(
+	client := phoebebird.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
@@ -31,13 +31,13 @@ func TestProductTop100GetWithOptionalParams(t *testing.T) {
 		int64(0),
 		int64(1),
 		int64(1),
-		phoebe.ProductTop100GetParams{
-			MaxResults: phoebe.F(int64(1)),
-			RankedBy:   phoebe.F(phoebe.ProductTop100GetParamsRankedBySpp),
+		phoebebird.ProductTop100GetParams{
+			MaxResults: phoebebird.F(int64(1)),
+			RankedBy:   phoebebird.F(phoebebird.ProductTop100GetParamsRankedBySpp),
 		},
 	)
 	if err != nil {
-		var apierr *phoebe.Error
+		var apierr *phoebebird.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}

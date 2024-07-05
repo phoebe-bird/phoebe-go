@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package phoebe_test
+package phoebebird_test
 
 import (
 	"context"
@@ -8,9 +8,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/stainless-sdks/phoebe-go"
-	"github.com/stainless-sdks/phoebe-go/internal/testutil"
-	"github.com/stainless-sdks/phoebe-go/option"
+	"github.com/phoebe-bird/phoebe-go"
+	"github.com/phoebe-bird/phoebe-go/internal/testutil"
+	"github.com/phoebe-bird/phoebe-go/option"
 )
 
 func TestDataObservationGeoRecentListWithOptionalParams(t *testing.T) {
@@ -21,24 +21,24 @@ func TestDataObservationGeoRecentListWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := phoebe.NewClient(
+	client := phoebebird.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Data.Observations.Geo.Recent.List(context.TODO(), phoebe.DataObservationGeoRecentListParams{
-		Lat:                phoebe.F(-90.000000),
-		Lng:                phoebe.F(-180.000000),
-		Back:               phoebe.F(int64(1)),
-		Cat:                phoebe.F(phoebe.DataObservationGeoRecentListParamsCatSpecies),
-		Dist:               phoebe.F(int64(0)),
-		Hotspot:            phoebe.F(true),
-		IncludeProvisional: phoebe.F(true),
-		MaxResults:         phoebe.F(int64(1)),
-		Sort:               phoebe.F(phoebe.DataObservationGeoRecentListParamsSortDate),
-		SppLocale:          phoebe.F("string"),
+	_, err := client.Data.Observations.Geo.Recent.List(context.TODO(), phoebebird.DataObservationGeoRecentListParams{
+		Lat:                phoebebird.F(-90.000000),
+		Lng:                phoebebird.F(-180.000000),
+		Back:               phoebebird.F(int64(1)),
+		Cat:                phoebebird.F(phoebebird.DataObservationGeoRecentListParamsCatSpecies),
+		Dist:               phoebebird.F(int64(0)),
+		Hotspot:            phoebebird.F(true),
+		IncludeProvisional: phoebebird.F(true),
+		MaxResults:         phoebebird.F(int64(1)),
+		Sort:               phoebebird.F(phoebebird.DataObservationGeoRecentListParamsSortDate),
+		SppLocale:          phoebebird.F("string"),
 	})
 	if err != nil {
-		var apierr *phoebe.Error
+		var apierr *phoebebird.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
