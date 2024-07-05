@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package phoebe
+package phoebebird
 
 import (
-	"github.com/stainless-sdks/phoebe-go/internal/apijson"
-	"github.com/stainless-sdks/phoebe-go/option"
+	"github.com/phoebe-bird/phoebe-go/internal/apijson"
+	"github.com/phoebe-bird/phoebe-go/option"
 )
 
 // DataObservationService contains methods and other services that help with
