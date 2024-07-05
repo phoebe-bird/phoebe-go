@@ -66,7 +66,6 @@ type ProductListHistoricalGetResponse struct {
 	ProjID               string                               `json:"projId"`
 	ProtocolID           string                               `json:"protocolId"`
 	SubID                string                               `json:"subId"`
-	SubID                string                               `json:"subID"`
 	SubmissionMethodCode string                               `json:"submissionMethodCode"`
 	Subnational1Code     string                               `json:"subnational1Code"`
 	UserDisplayName      string                               `json:"userDisplayName"`
@@ -93,7 +92,6 @@ type productListHistoricalGetResponseJSON struct {
 	ProjID               apijson.Field
 	ProtocolID           apijson.Field
 	SubID                apijson.Field
-	SubID                apijson.Field
 	SubmissionMethodCode apijson.Field
 	Subnational1Code     apijson.Field
 	UserDisplayName      apijson.Field
@@ -118,7 +116,6 @@ type ProductListHistoricalGetResponseLoc struct {
 	Latitude         float64                                 `json:"latitude"`
 	Lng              float64                                 `json:"lng"`
 	LocID            string                                  `json:"locId"`
-	LocID            string                                  `json:"locID"`
 	LocName          string                                  `json:"locName"`
 	Longitude        float64                                 `json:"longitude"`
 	Name             string                                  `json:"name"`
@@ -137,7 +134,6 @@ type productListHistoricalGetResponseLocJSON struct {
 	Lat              apijson.Field
 	Latitude         apijson.Field
 	Lng              apijson.Field
-	LocID            apijson.Field
 	LocID            apijson.Field
 	LocName          apijson.Field
 	Longitude        apijson.Field
