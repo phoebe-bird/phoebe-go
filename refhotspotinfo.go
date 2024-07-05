@@ -55,7 +55,6 @@ type RefHotspotInfoGetResponse struct {
 	Latitude         float64                       `json:"latitude"`
 	Lng              float64                       `json:"lng"`
 	LocID            string                        `json:"locId"`
-	LocID            string                        `json:"locID"`
 	LocName          string                        `json:"locName"`
 	Longitude        float64                       `json:"longitude"`
 	Name             string                        `json:"name"`
@@ -74,7 +73,6 @@ type refHotspotInfoGetResponseJSON struct {
 	Lat              apijson.Field
 	Latitude         apijson.Field
 	Lng              apijson.Field
-	LocID            apijson.Field
 	LocID            apijson.Field
 	LocName          apijson.Field
 	Longitude        apijson.Field
