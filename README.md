@@ -1,6 +1,6 @@
 # Phoebe Go API Library
 
-<a href="https://pkg.go.dev/github.com/stainless-sdks/phoebe-go"><img src="https://pkg.go.dev/badge/github.com/stainless-sdks/phoebe-go.svg" alt="Go Reference"></a>
+<a href="https://pkg.go.dev/github.com/phoebe-bird/phoebe-go"><img src="https://pkg.go.dev/badge/github.com/phoebe-bird/phoebe-go.svg" alt="Go Reference"></a>
 
 The Phoebe Go library provides convenient access to [the Phoebe REST
 API](https://science.ebird.org/en/use-ebird-data/download-ebird-data-products) from applications written in Go. The full API of this library can be found in [api.md](api.md).
@@ -9,17 +9,25 @@ It is generated with [Stainless](https://www.stainlessapi.com/).
 
 ## Installation
 
+<!-- x-release-please-start-version -->
+
 ```go
 import (
-	"github.com/stainless-sdks/phoebe-go" // imported as phoebe
+	"github.com/phoebe-bird/phoebe-go" // imported as phoebebird
 )
 ```
 
+<!-- x-release-please-end -->
+
 Or to pin the version:
 
+<!-- x-release-please-start-version -->
+
 ```sh
-go get -u 'github.com/stainless-sdks/phoebe-go@v0.0.1-alpha.0'
+go get -u 'github.com/phoebe-bird/phoebe-go@v0.0.1-alpha.0'
 ```
+
+<!-- x-release-please-end -->
 
 ## Requirements
 
@@ -36,12 +44,12 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/stainless-sdks/phoebe-go"
-	"github.com/stainless-sdks/phoebe-go/option"
+	"github.com/phoebe-bird/phoebe-go"
+	"github.com/phoebe-bird/phoebe-go/option"
 )
 
 func main() {
-	client := phoebe.NewClient(
+	client := phoebebird.NewClient(
 		option.WithAPIKey("My API Key"), // defaults to os.LookupEnv("EBIRD_API_KEY")
 	)
 	refHotspotInfoGetResponse, err := client.Ref.Hotspot.Info.Get(context.TODO(), "L99381")
@@ -67,18 +75,18 @@ To send a null, use `Null[T]()`, and to send a nonconforming value, use `Raw[T](
 
 ```go
 params := FooParams{
-	Name: phoebe.F("hello"),
+	Name: phoebebird.F("hello"),
 
 	// Explicitly send `"description": null`
-	Description: phoebe.Null[string](),
+	Description: phoebebird.Null[string](),
 
-	Point: phoebe.F(phoebe.Point{
-		X: phoebe.Int(0),
-		Y: phoebe.Int(1),
+	Point: phoebebird.F(phoebebird.Point{
+		X: phoebebird.Int(0),
+		Y: phoebebird.Int(1),
 
 		// In cases where the API specifies a given type,
 		// but you want to send something else, use `Raw`:
-		Z: phoebe.Raw[int64](0.01), // sends a float
+		Z: phoebebird.Raw[int64](0.01), // sends a float
 	}),
 }
 ```
@@ -132,7 +140,7 @@ This library uses the functional options pattern. Functions defined in the
 requests. For example:
 
 ```go
-client := phoebe.NewClient(
+client := phoebebird.NewClient(
 	// Adds a header to every request made by the client
 	option.WithHeader("X-Some-Header", "custom_header_info"),
 )
@@ -145,7 +153,7 @@ client.Ref.Hotspot.Info.Get(context.TODO(), ...,
 )
 ```
 
-See the [full list of request options](https://pkg.go.dev/github.com/stainless-sdks/phoebe-go/option).
+See the [full list of request options](https://pkg.go.dev/github.com/phoebe-bird/phoebe-go/option).
 
 ### Pagination
 
@@ -159,7 +167,7 @@ with additional helper methods like `.GetNextPage()`, e.g.:
 ### Errors
 
 When the API returns a non-success status code, we return an error with type
-`*phoebe.Error`. This contains the `StatusCode`, `*http.Request`, and
+`*phoebebird.Error`. This contains the `StatusCode`, `*http.Request`, and
 `*http.Response` values of the request, as well as the JSON of the error body
 (much like other response objects in the SDK).
 
@@ -168,7 +176,7 @@ To handle errors, we recommend that you use the `errors.As` pattern:
 ```go
 _, err := client.Ref.Hotspot.Info.Get(context.TODO(), "L99381")
 if err != nil {
-	var apierr *phoebe.Error
+	var apierr *phoebebird.Error
 	if errors.As(err, &apierr) {
 		println(string(apierr.DumpRequest(true)))  // Prints the serialized HTTP request
 		println(string(apierr.DumpResponse(true))) // Prints the serialized HTTP response
@@ -209,7 +217,7 @@ The file name and content-type can be customized by implementing `Name() string`
 string` on the run-time type of `io.Reader`. Note that `os.File` implements `Name() string`, so a
 file returned by `os.Open` will be sent with the file name on disk.
 
-We also provide a helper `phoebe.FileParam(reader io.Reader, filename string, contentType string)`
+We also provide a helper `phoebebird.FileParam(reader io.Reader, filename string, contentType string)`
 which can be used to wrap any `io.Reader` with the appropriate file name and content type.
 
 ### Retries
@@ -222,7 +230,7 @@ You can use the `WithMaxRetries` option to configure or disable this:
 
 ```go
 // Configure the default for all requests:
-client := phoebe.NewClient(
+client := phoebebird.NewClient(
 	option.WithMaxRetries(0), // default is 2
 )
 
@@ -267,9 +275,9 @@ or the `option.WithJSONSet()` methods.
 
 ```go
 params := FooNewParams{
-    ID:   phoebe.F("id_xxxx"),
-    Data: phoebe.F(FooNewParamsData{
-        FirstName: phoebe.F("John"),
+    ID:   phoebebird.F("id_xxxx"),
+    Data: phoebebird.F(FooNewParamsData{
+        FirstName: phoebebird.F("John"),
     }),
 }
 client.Foo.New(context.Background(), params, option.WithJSONSet("data.last_name", "Doe"))
@@ -304,7 +312,7 @@ func Logger(req *http.Request, next option.MiddlewareNext) (res *http.Response, 
     return res, err
 }
 
-client := phoebe.NewClient(
+client := phoebebird.NewClient(
 	option.WithMiddleware(Logger),
 )
 ```
@@ -329,4 +337,4 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/phoebe-go/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/phoebe-bird/phoebe-go/issues) with questions, bugs, or suggestions.

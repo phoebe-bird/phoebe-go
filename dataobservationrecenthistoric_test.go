@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package phoebe_test
+package phoebebird_test
 
 import (
 	"context"
@@ -8,9 +8,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/stainless-sdks/phoebe-go"
-	"github.com/stainless-sdks/phoebe-go/internal/testutil"
-	"github.com/stainless-sdks/phoebe-go/option"
+	"github.com/phoebe-bird/phoebe-go"
+	"github.com/phoebe-bird/phoebe-go/internal/testutil"
+	"github.com/phoebe-bird/phoebe-go/option"
 )
 
 func TestDataObservationRecentHistoricListWithOptionalParams(t *testing.T) {
@@ -21,7 +21,7 @@ func TestDataObservationRecentHistoricListWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := phoebe.NewClient(
+	client := phoebebird.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
@@ -31,19 +31,19 @@ func TestDataObservationRecentHistoricListWithOptionalParams(t *testing.T) {
 		int64(0),
 		int64(1),
 		int64(1),
-		phoebe.DataObservationRecentHistoricListParams{
-			Cat:                phoebe.F(phoebe.DataObservationRecentHistoricListParamsCatSpecies),
-			Detail:             phoebe.F(phoebe.DataObservationRecentHistoricListParamsDetailSimple),
-			Hotspot:            phoebe.F(true),
-			IncludeProvisional: phoebe.F(true),
-			MaxResults:         phoebe.F(int64(1)),
-			R:                  phoebe.F([]string{"string"}),
-			Rank:               phoebe.F(phoebe.DataObservationRecentHistoricListParamsRankMrec),
-			SppLocale:          phoebe.F("string"),
+		phoebebird.DataObservationRecentHistoricListParams{
+			Cat:                phoebebird.F(phoebebird.DataObservationRecentHistoricListParamsCatSpecies),
+			Detail:             phoebebird.F(phoebebird.DataObservationRecentHistoricListParamsDetailSimple),
+			Hotspot:            phoebebird.F(true),
+			IncludeProvisional: phoebebird.F(true),
+			MaxResults:         phoebebird.F(int64(1)),
+			R:                  phoebebird.F([]string{"string"}),
+			Rank:               phoebebird.F(phoebebird.DataObservationRecentHistoricListParamsRankMrec),
+			SppLocale:          phoebebird.F("string"),
 		},
 	)
 	if err != nil {
-		var apierr *phoebe.Error
+		var apierr *phoebebird.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
