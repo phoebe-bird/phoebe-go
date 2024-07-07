@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package phoebebird_test
+package phoebe_test
 
 import (
 	"context"
@@ -21,19 +21,19 @@ func TestRefTaxonomySpeciesGroupListWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := phoebebird.NewClient(
+	client := phoebe.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.Ref.Taxonomy.SpeciesGroups.List(
 		context.TODO(),
-		phoebebird.RefTaxonomySpeciesGroupListParamsSpeciesGroupingMerlin,
-		phoebebird.RefTaxonomySpeciesGroupListParams{
-			GroupNameLocale: phoebebird.F("string"),
+		phoebe.RefTaxonomySpeciesGroupListParamsSpeciesGroupingMerlin,
+		phoebe.RefTaxonomySpeciesGroupListParams{
+			GroupNameLocale: phoebe.F("string"),
 		},
 	)
 	if err != nil {
-		var apierr *phoebebird.Error
+		var apierr *phoebe.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}

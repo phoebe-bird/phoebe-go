@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package phoebebird_test
+package phoebe_test
 
 import (
 	"context"
@@ -21,20 +21,20 @@ func TestRefHotspotListWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := phoebebird.NewClient(
+	client := phoebe.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.Ref.Hotspot.List(
 		context.TODO(),
 		"string",
-		phoebebird.RefHotspotListParams{
-			Back: phoebebird.F(int64(1)),
-			Fmt:  phoebebird.F(phoebebird.RefHotspotListParamsFmtCsv),
+		phoebe.RefHotspotListParams{
+			Back: phoebe.F(int64(1)),
+			Fmt:  phoebe.F(phoebe.RefHotspotListParamsFmtCsv),
 		},
 	)
 	if err != nil {
-		var apierr *phoebebird.Error
+		var apierr *phoebe.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
