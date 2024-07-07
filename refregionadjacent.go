@@ -35,7 +35,7 @@ func NewRefRegionAdjacentService(opts ...option.RequestOption) (r *RefRegionAdja
 // Get the list of countries or regions that share a border with this one. ####
 // Notes Only subnational2 codes in the United States, New Zealand, or Mexico are
 // currently supported
-func (r *RefRegionAdjacentService) List(ctx context.Context, regionCode string, opts ...option.RequestOption) (res *RefRegionAdjacentListResponse, err error) {
+func (r *RefRegionAdjacentService) List(ctx context.Context, regionCode string, opts ...option.RequestOption) (res *[]RefRegionAdjacentListResponse, err error) {
 	opts = append(r.Options[:], opts...)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
@@ -47,16 +47,18 @@ func (r *RefRegionAdjacentService) List(ctx context.Context, regionCode string, 
 }
 
 type RefRegionAdjacentListResponse struct {
-	AdjacentRegions []RefRegionAdjacentListResponseAdjacentRegion `json:"adjacentRegions"`
-	JSON            refRegionAdjacentListResponseJSON             `json:"-"`
+	Code string                            `json:"code"`
+	Name string                            `json:"name"`
+	JSON refRegionAdjacentListResponseJSON `json:"-"`
 }
 
 // refRegionAdjacentListResponseJSON contains the JSON metadata for the struct
 // [RefRegionAdjacentListResponse]
 type refRegionAdjacentListResponseJSON struct {
-	AdjacentRegions apijson.Field
-	raw             string
-	ExtraFields     map[string]apijson.Field
+	Code        apijson.Field
+	Name        apijson.Field
+	raw         string
+	ExtraFields map[string]apijson.Field
 }
 
 func (r *RefRegionAdjacentListResponse) UnmarshalJSON(data []byte) (err error) {
@@ -64,28 +66,5 @@ func (r *RefRegionAdjacentListResponse) UnmarshalJSON(data []byte) (err error) {
 }
 
 func (r refRegionAdjacentListResponseJSON) RawJSON() string {
-	return r.raw
-}
-
-type RefRegionAdjacentListResponseAdjacentRegion struct {
-	Code string                                          `json:"code"`
-	Name string                                          `json:"name"`
-	JSON refRegionAdjacentListResponseAdjacentRegionJSON `json:"-"`
-}
-
-// refRegionAdjacentListResponseAdjacentRegionJSON contains the JSON metadata for
-// the struct [RefRegionAdjacentListResponseAdjacentRegion]
-type refRegionAdjacentListResponseAdjacentRegionJSON struct {
-	Code        apijson.Field
-	Name        apijson.Field
-	raw         string
-	ExtraFields map[string]apijson.Field
-}
-
-func (r *RefRegionAdjacentListResponseAdjacentRegion) UnmarshalJSON(data []byte) (err error) {
-	return apijson.UnmarshalRoot(data, r)
-}
-
-func (r refRegionAdjacentListResponseAdjacentRegionJSON) RawJSON() string {
 	return r.raw
 }
