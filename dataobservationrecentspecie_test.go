@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package phoebebird_test
+package phoebe_test
 
 import (
 	"context"
@@ -21,7 +21,7 @@ func TestDataObservationRecentSpecieGetWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := phoebebird.NewClient(
+	client := phoebe.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
@@ -29,17 +29,17 @@ func TestDataObservationRecentSpecieGetWithOptionalParams(t *testing.T) {
 		context.TODO(),
 		"string",
 		"string",
-		phoebebird.DataObservationRecentSpecieGetParams{
-			Back:               phoebebird.F(int64(1)),
-			Hotspot:            phoebebird.F(true),
-			IncludeProvisional: phoebebird.F(true),
-			MaxResults:         phoebebird.F(int64(1)),
-			R:                  phoebebird.F([]string{"string"}),
-			SppLocale:          phoebebird.F("string"),
+		phoebe.DataObservationRecentSpecieGetParams{
+			Back:               phoebe.F(int64(1)),
+			Hotspot:            phoebe.F(true),
+			IncludeProvisional: phoebe.F(true),
+			MaxResults:         phoebe.F(int64(1)),
+			R:                  phoebe.F([]string{"string"}),
+			SppLocale:          phoebe.F("string"),
 		},
 	)
 	if err != nil {
-		var apierr *phoebebird.Error
+		var apierr *phoebe.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
