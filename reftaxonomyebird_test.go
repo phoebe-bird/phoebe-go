@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package phoebebird_test
+package phoebe_test
 
 import (
 	"context"
@@ -21,19 +21,19 @@ func TestRefTaxonomyEbirdGetWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := phoebebird.NewClient(
+	client := phoebe.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Ref.Taxonomy.Ebird.Get(context.TODO(), phoebebird.RefTaxonomyEbirdGetParams{
-		Cat:     phoebebird.F("string"),
-		Fmt:     phoebebird.F(phoebebird.RefTaxonomyEbirdGetParamsFmtCsv),
-		Locale:  phoebebird.F("string"),
-		Species: phoebebird.F("string"),
-		Version: phoebebird.F("string"),
+	_, err := client.Ref.Taxonomy.Ebird.Get(context.TODO(), phoebe.RefTaxonomyEbirdGetParams{
+		Cat:     phoebe.F("string"),
+		Fmt:     phoebe.F(phoebe.RefTaxonomyEbirdGetParamsFmtCsv),
+		Locale:  phoebe.F("string"),
+		Species: phoebe.F("string"),
+		Version: phoebe.F("string"),
 	})
 	if err != nil {
-		var apierr *phoebebird.Error
+		var apierr *phoebe.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}

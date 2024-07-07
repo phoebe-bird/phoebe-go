@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package phoebebird_test
+package phoebe_test
 
 import (
 	"context"
@@ -21,20 +21,20 @@ func TestRefRegionInfoGetWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := phoebebird.NewClient(
+	client := phoebe.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.Ref.Region.Info.Get(
 		context.TODO(),
 		"string",
-		phoebebird.RefRegionInfoGetParams{
-			Delim:            phoebebird.F("string"),
-			RegionNameFormat: phoebebird.F(phoebebird.RefRegionInfoGetParamsRegionNameFormatDetailed),
+		phoebe.RefRegionInfoGetParams{
+			Delim:            phoebe.F("string"),
+			RegionNameFormat: phoebe.F(phoebe.RefRegionInfoGetParamsRegionNameFormatDetailed),
 		},
 	)
 	if err != nil {
-		var apierr *phoebebird.Error
+		var apierr *phoebe.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
