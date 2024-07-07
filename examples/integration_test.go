@@ -5,8 +5,8 @@ package main_test
 import (
 	"context"
 	"errors"
-	"github.com/stainless-sdks/phoebe-go"
-	"github.com/stainless-sdks/phoebe-go/option"
+	"github.com/phoebe-bird/phoebe-go"
+	"github.com/phoebe-bird/phoebe-go/option"
 	"os"
 	"testing"
 )
