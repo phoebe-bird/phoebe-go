@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.0-alpha.2 (2024-07-07)
+
+Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
+
+### Features
+
+* **api:** add docs to openapi spec ([#11](https://github.com/phoebe-bird/phoebe-go/issues/11)) ([4919966](https://github.com/phoebe-bird/phoebe-go/commit/491996613ea742452effdcaf71559a9cb8764d33))
+* **api:** fix adjacent region ([#9](https://github.com/phoebe-bird/phoebe-go/issues/9)) ([6069a29](https://github.com/phoebe-bird/phoebe-go/commit/6069a29d06680517bb85780b77b0d29b027da8d0))
+* **docs:** update contact email ([#12](https://github.com/phoebe-bird/phoebe-go/issues/12)) ([dc35b21](https://github.com/phoebe-bird/phoebe-go/commit/dc35b21f7b73ed5d69bc3e67ceced7e8916b56b3))
+
 ## 0.1.0-alpha.1 (2024-07-07)
 
 Full Changelog: [v0.0.1-alpha.0...v0.1.0-alpha.1](https://github.com/phoebe-bird/phoebe-go/compare/v0.0.1-alpha.0...v0.1.0-alpha.1)
