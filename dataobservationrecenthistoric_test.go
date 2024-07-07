@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package phoebebird_test
+package phoebe_test
 
 import (
 	"context"
@@ -21,7 +21,7 @@ func TestDataObservationRecentHistoricListWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := phoebebird.NewClient(
+	client := phoebe.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
@@ -31,19 +31,19 @@ func TestDataObservationRecentHistoricListWithOptionalParams(t *testing.T) {
 		int64(0),
 		int64(1),
 		int64(1),
-		phoebebird.DataObservationRecentHistoricListParams{
-			Cat:                phoebebird.F(phoebebird.DataObservationRecentHistoricListParamsCatSpecies),
-			Detail:             phoebebird.F(phoebebird.DataObservationRecentHistoricListParamsDetailSimple),
-			Hotspot:            phoebebird.F(true),
-			IncludeProvisional: phoebebird.F(true),
-			MaxResults:         phoebebird.F(int64(1)),
-			R:                  phoebebird.F([]string{"string"}),
-			Rank:               phoebebird.F(phoebebird.DataObservationRecentHistoricListParamsRankMrec),
-			SppLocale:          phoebebird.F("string"),
+		phoebe.DataObservationRecentHistoricListParams{
+			Cat:                phoebe.F(phoebe.DataObservationRecentHistoricListParamsCatSpecies),
+			Detail:             phoebe.F(phoebe.DataObservationRecentHistoricListParamsDetailSimple),
+			Hotspot:            phoebe.F(true),
+			IncludeProvisional: phoebe.F(true),
+			MaxResults:         phoebe.F(int64(1)),
+			R:                  phoebe.F([]string{"string"}),
+			Rank:               phoebe.F(phoebe.DataObservationRecentHistoricListParamsRankMrec),
+			SppLocale:          phoebe.F("string"),
 		},
 	)
 	if err != nil {
-		var apierr *phoebebird.Error
+		var apierr *phoebe.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}

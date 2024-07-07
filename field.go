@@ -1,4 +1,4 @@
-package phoebebird
+package phoebe
 
 import (
 	"github.com/phoebe-bird/phoebe-go/internal/param"

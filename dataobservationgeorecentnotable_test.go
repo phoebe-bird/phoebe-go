@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package phoebebird_test
+package phoebe_test
 
 import (
 	"context"
@@ -21,22 +21,22 @@ func TestDataObservationGeoRecentNotableListWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := phoebebird.NewClient(
+	client := phoebe.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Data.Observations.Geo.Recent.Notable.List(context.TODO(), phoebebird.DataObservationGeoRecentNotableListParams{
-		Lat:        phoebebird.F(-90.000000),
-		Lng:        phoebebird.F(-180.000000),
-		Back:       phoebebird.F(int64(1)),
-		Detail:     phoebebird.F(phoebebird.DataObservationGeoRecentNotableListParamsDetailSimple),
-		Dist:       phoebebird.F(int64(0)),
-		Hotspot:    phoebebird.F(true),
-		MaxResults: phoebebird.F(int64(1)),
-		SppLocale:  phoebebird.F("string"),
+	_, err := client.Data.Observations.Geo.Recent.Notable.List(context.TODO(), phoebe.DataObservationGeoRecentNotableListParams{
+		Lat:        phoebe.F(-90.000000),
+		Lng:        phoebe.F(-180.000000),
+		Back:       phoebe.F(int64(1)),
+		Detail:     phoebe.F(phoebe.DataObservationGeoRecentNotableListParamsDetailSimple),
+		Dist:       phoebe.F(int64(0)),
+		Hotspot:    phoebe.F(true),
+		MaxResults: phoebe.F(int64(1)),
+		SppLocale:  phoebe.F("string"),
 	})
 	if err != nil {
-		var apierr *phoebebird.Error
+		var apierr *phoebe.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}

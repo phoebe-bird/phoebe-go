@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package phoebebird_test
+package phoebe_test
 
 import (
 	"context"
@@ -21,7 +21,7 @@ func TestProductTop100GetWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := phoebebird.NewClient(
+	client := phoebe.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
@@ -31,13 +31,13 @@ func TestProductTop100GetWithOptionalParams(t *testing.T) {
 		int64(0),
 		int64(1),
 		int64(1),
-		phoebebird.ProductTop100GetParams{
-			MaxResults: phoebebird.F(int64(1)),
-			RankedBy:   phoebebird.F(phoebebird.ProductTop100GetParamsRankedBySpp),
+		phoebe.ProductTop100GetParams{
+			MaxResults: phoebe.F(int64(1)),
+			RankedBy:   phoebe.F(phoebe.ProductTop100GetParamsRankedBySpp),
 		},
 	)
 	if err != nil {
-		var apierr *phoebebird.Error
+		var apierr *phoebe.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}

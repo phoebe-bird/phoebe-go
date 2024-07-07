@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package phoebebird_test
+package phoebe_test
 
 import (
 	"context"
@@ -21,7 +21,7 @@ func TestProductListHistoricalGetWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := phoebebird.NewClient(
+	client := phoebe.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
@@ -31,13 +31,13 @@ func TestProductListHistoricalGetWithOptionalParams(t *testing.T) {
 		int64(0),
 		int64(1),
 		int64(1),
-		phoebebird.ProductListHistoricalGetParams{
-			MaxResults: phoebebird.F(int64(1)),
-			SortKey:    phoebebird.F(phoebebird.ProductListHistoricalGetParamsSortKeyObsDt),
+		phoebe.ProductListHistoricalGetParams{
+			MaxResults: phoebe.F(int64(1)),
+			SortKey:    phoebe.F(phoebe.ProductListHistoricalGetParamsSortKeyObsDt),
 		},
 	)
 	if err != nil {
-		var apierr *phoebebird.Error
+		var apierr *phoebe.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
