@@ -128,7 +128,7 @@ Response Types:
 
 Methods:
 
-- <code title="get /ref/adjacent/{regionCode}">client.Ref.Region.Adjacent.<a href="https://pkg.go.dev/github.com/phoebe-bird/phoebe-go#RefRegionAdjacentService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, regionCode <a href="https://pkg.go.dev/builtin#string">string</a>) (<a href="https://pkg.go.dev/github.com/phoebe-bird/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/phoebe-bird/phoebe-go#RefRegionAdjacentListResponse">RefRegionAdjacentListResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
+- <code title="get /ref/adjacent/{regionCode}">client.Ref.Region.Adjacent.<a href="https://pkg.go.dev/github.com/phoebe-bird/phoebe-go#RefRegionAdjacentService.List">List</a>(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, regionCode <a href="https://pkg.go.dev/builtin#string">string</a>) ([]<a href="https://pkg.go.dev/github.com/phoebe-bird/phoebe-go">phoebe</a>.<a href="https://pkg.go.dev/github.com/phoebe-bird/phoebe-go#RefRegionAdjacentListResponse">RefRegionAdjacentListResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code>
 
 ### Info
 
