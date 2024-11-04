@@ -27,7 +27,7 @@ func TestDataObservationRecentListWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.Data.Observations.Recent.List(
 		context.TODO(),
-		"string",
+		"regionCode",
 		phoebe.DataObservationRecentListParams{
 			Back:               phoebe.F(int64(1)),
 			Cat:                phoebe.F(phoebe.DataObservationRecentListParamsCatSpecies),
@@ -35,7 +35,7 @@ func TestDataObservationRecentListWithOptionalParams(t *testing.T) {
 			IncludeProvisional: phoebe.F(true),
 			MaxResults:         phoebe.F(int64(1)),
 			R:                  phoebe.F([]string{"string"}),
-			SppLocale:          phoebe.F("string"),
+			SppLocale:          phoebe.F("sppLocale"),
 		},
 	)
 	if err != nil {

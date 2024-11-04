@@ -25,7 +25,7 @@ func TestRefHotspotInfoGet(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Ref.Hotspot.Info.Get(context.TODO(), "string")
+	_, err := client.Ref.Hotspot.Info.Get(context.TODO(), "locId")
 	if err != nil {
 		var apierr *phoebe.Error
 		if errors.As(err, &apierr) {

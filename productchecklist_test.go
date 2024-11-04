@@ -25,7 +25,7 @@ func TestProductChecklistView(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Product.Checklist.View(context.TODO(), "string")
+	_, err := client.Product.Checklist.View(context.TODO(), "subId")
 	if err != nil {
 		var apierr *phoebe.Error
 		if errors.As(err, &apierr) {

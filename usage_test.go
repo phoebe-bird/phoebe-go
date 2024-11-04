@@ -24,9 +24,9 @@ func TestUsage(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	refHotspotInfoGetResponse, err := client.Ref.Hotspot.Info.Get(context.TODO(), "L99381")
+	info, err := client.Ref.Hotspot.Info.Get(context.TODO(), "L99381")
 	if err != nil {
 		t.Error(err)
 	}
-	t.Logf("%+v\n", refHotspotInfoGetResponse.CountryCode)
+	t.Logf("%+v\n", info.CountryCode)
 }

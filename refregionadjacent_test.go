@@ -25,7 +25,7 @@ func TestRefRegionAdjacentList(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Ref.Region.Adjacent.List(context.TODO(), "string")
+	_, err := client.Ref.Region.Adjacent.List(context.TODO(), "regionCode")
 	if err != nil {
 		var apierr *phoebe.Error
 		if errors.As(err, &apierr) {

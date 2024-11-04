@@ -35,7 +35,7 @@ func TestDataObservationGeoRecentListWithOptionalParams(t *testing.T) {
 		IncludeProvisional: phoebe.F(true),
 		MaxResults:         phoebe.F(int64(1)),
 		Sort:               phoebe.F(phoebe.DataObservationGeoRecentListParamsSortDate),
-		SppLocale:          phoebe.F("string"),
+		SppLocale:          phoebe.F("sppLocale"),
 	})
 	if err != nil {
 		var apierr *phoebe.Error

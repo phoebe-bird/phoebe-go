@@ -27,7 +27,7 @@ func TestDataObservationNearestGeoSpecieListWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.Data.Observations.Nearest.GeoSpecies.List(
 		context.TODO(),
-		"string",
+		"speciesCode",
 		phoebe.DataObservationNearestGeoSpecieListParams{
 			Lat:                phoebe.F(-90.000000),
 			Lng:                phoebe.F(-180.000000),
@@ -36,7 +36,7 @@ func TestDataObservationNearestGeoSpecieListWithOptionalParams(t *testing.T) {
 			Hotspot:            phoebe.F(true),
 			IncludeProvisional: phoebe.F(true),
 			MaxResults:         phoebe.F(int64(1)),
-			SppLocale:          phoebe.F("string"),
+			SppLocale:          phoebe.F("sppLocale"),
 		},
 	)
 	if err != nil {
