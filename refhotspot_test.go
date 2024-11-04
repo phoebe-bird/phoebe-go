@@ -27,7 +27,7 @@ func TestRefHotspotListWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.Ref.Hotspot.List(
 		context.TODO(),
-		"string",
+		"regionCode",
 		phoebe.RefHotspotListParams{
 			Back: phoebe.F(int64(1)),
 			Fmt:  phoebe.F(phoebe.RefHotspotListParamsFmtCsv),

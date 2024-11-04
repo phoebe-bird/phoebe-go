@@ -29,7 +29,7 @@ func TestRefTaxonomySpeciesGroupListWithOptionalParams(t *testing.T) {
 		context.TODO(),
 		phoebe.RefTaxonomySpeciesGroupListParamsSpeciesGroupingMerlin,
 		phoebe.RefTaxonomySpeciesGroupListParams{
-			GroupNameLocale: phoebe.F("string"),
+			GroupNameLocale: phoebe.F("groupNameLocale"),
 		},
 	)
 	if err != nil {

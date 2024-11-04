@@ -27,7 +27,7 @@ func TestProductListHistoricalGetWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.Product.Lists.Historical.Get(
 		context.TODO(),
-		"string",
+		"regionCode",
 		int64(0),
 		int64(1),
 		int64(1),

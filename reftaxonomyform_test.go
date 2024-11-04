@@ -25,7 +25,7 @@ func TestRefTaxonomyFormList(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Ref.Taxonomy.Forms.List(context.TODO(), "string")
+	_, err := client.Ref.Taxonomy.Forms.List(context.TODO(), "speciesCode")
 	if err != nil {
 		var apierr *phoebe.Error
 		if errors.As(err, &apierr) {

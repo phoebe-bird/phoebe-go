@@ -27,7 +27,7 @@ func TestDataObservationRecentHistoricListWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.Data.Observations.Recent.Historic.List(
 		context.TODO(),
-		"string",
+		"regionCode",
 		int64(0),
 		int64(1),
 		int64(1),
@@ -39,7 +39,7 @@ func TestDataObservationRecentHistoricListWithOptionalParams(t *testing.T) {
 			MaxResults:         phoebe.F(int64(1)),
 			R:                  phoebe.F([]string{"string"}),
 			Rank:               phoebe.F(phoebe.DataObservationRecentHistoricListParamsRankMrec),
-			SppLocale:          phoebe.F("string"),
+			SppLocale:          phoebe.F("sppLocale"),
 		},
 	)
 	if err != nil {

@@ -27,9 +27,9 @@ func TestRefRegionInfoGetWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.Ref.Region.Info.Get(
 		context.TODO(),
-		"string",
+		"regionCode",
 		phoebe.RefRegionInfoGetParams{
-			Delim:            phoebe.F("string"),
+			Delim:            phoebe.F("delim"),
 			RegionNameFormat: phoebe.F(phoebe.RefRegionInfoGetParamsRegionNameFormatDetailed),
 		},
 	)
