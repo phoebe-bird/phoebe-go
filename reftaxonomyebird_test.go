@@ -26,11 +26,11 @@ func TestRefTaxonomyEbirdGetWithOptionalParams(t *testing.T) {
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.Ref.Taxonomy.Ebird.Get(context.TODO(), phoebe.RefTaxonomyEbirdGetParams{
-		Cat:     phoebe.F("string"),
+		Cat:     phoebe.F("cat"),
 		Fmt:     phoebe.F(phoebe.RefTaxonomyEbirdGetParamsFmtCsv),
-		Locale:  phoebe.F("string"),
-		Species: phoebe.F("string"),
-		Version: phoebe.F("string"),
+		Locale:  phoebe.F("locale"),
+		Species: phoebe.F("species"),
+		Version: phoebe.F("version"),
 	})
 	if err != nil {
 		var apierr *phoebe.Error

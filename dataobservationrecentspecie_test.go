@@ -27,15 +27,15 @@ func TestDataObservationRecentSpecieGetWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.Data.Observations.Recent.Species.Get(
 		context.TODO(),
-		"string",
-		"string",
+		"regionCode",
+		"speciesCode",
 		phoebe.DataObservationRecentSpecieGetParams{
 			Back:               phoebe.F(int64(1)),
 			Hotspot:            phoebe.F(true),
 			IncludeProvisional: phoebe.F(true),
 			MaxResults:         phoebe.F(int64(1)),
 			R:                  phoebe.F([]string{"string"}),
-			SppLocale:          phoebe.F("string"),
+			SppLocale:          phoebe.F("sppLocale"),
 		},
 	)
 	if err != nil {

@@ -27,14 +27,14 @@ func TestDataObservationRecentNotableListWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.Data.Observations.Recent.Notable.List(
 		context.TODO(),
-		"string",
+		"regionCode",
 		phoebe.DataObservationRecentNotableListParams{
 			Back:       phoebe.F(int64(1)),
 			Detail:     phoebe.F(phoebe.DataObservationRecentNotableListParamsDetailSimple),
 			Hotspot:    phoebe.F(true),
 			MaxResults: phoebe.F(int64(1)),
 			R:          phoebe.F([]string{"string"}),
-			SppLocale:  phoebe.F("string"),
+			SppLocale:  phoebe.F("sppLocale"),
 		},
 	)
 	if err != nil {

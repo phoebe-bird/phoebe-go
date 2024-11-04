@@ -27,7 +27,7 @@ func TestProductStatGet(t *testing.T) {
 	)
 	_, err := client.Product.Stats.Get(
 		context.TODO(),
-		"string",
+		"regionCode",
 		int64(0),
 		int64(1),
 		int64(1),
