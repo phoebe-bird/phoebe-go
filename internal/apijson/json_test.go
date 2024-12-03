@@ -261,6 +261,59 @@ func init() {
 	)
 }
 
+type MarshallingUnionStruct struct {
+	Union MarshallingUnion
+}
+
+func (r *MarshallingUnionStruct) UnmarshalJSON(data []byte) (err error) {
+	*r = MarshallingUnionStruct{}
+	err = UnmarshalRoot(data, &r.Union)
+	return
+}
+
+func (r MarshallingUnionStruct) MarshalJSON() (data []byte, err error) {
+	return MarshalRoot(r.Union)
+}
+
+type MarshallingUnion interface {
+	marshallingUnion()
+}
+
+type MarshallingUnionA struct {
+	Boo string `json:"boo"`
+}
+
+func (MarshallingUnionA) marshallingUnion() {}
+
+func (r *MarshallingUnionA) UnmarshalJSON(data []byte) (err error) {
+	return UnmarshalRoot(data, r)
+}
+
+type MarshallingUnionB struct {
+	Foo string `json:"foo"`
+}
+
+func (MarshallingUnionB) marshallingUnion() {}
+
+func (r *MarshallingUnionB) UnmarshalJSON(data []byte) (err error) {
+	return UnmarshalRoot(data, r)
+}
+
+func init() {
+	RegisterUnion(
+		reflect.TypeOf((*MarshallingUnion)(nil)).Elem(),
+		"",
+		UnionVariant{
+			TypeFilter: gjson.JSON,
+			Type:       reflect.TypeOf(MarshallingUnionA{}),
+		},
+		UnionVariant{
+			TypeFilter: gjson.JSON,
+			Type:       reflect.TypeOf(MarshallingUnionB{}),
+		},
+	)
+}
+
 var tests = map[string]struct {
 	buf string
 	val interface{}
@@ -308,8 +361,9 @@ var tests = map[string]struct {
 	"date_time_missing_timezone_colon_coerce": {`"2007-03-01T13:03:05-1200"`, time.Date(2007, time.March, 1, 13, 3, 5, 0, time.FixedZone("", -12*60*60))},
 	"date_time_nano_missing_t_coerce":         {`"2007-03-01 13:03:05.123456789Z"`, time.Date(2007, time.March, 1, 13, 3, 5, 123456789, time.UTC)},
 
-	"map_string":    {`{"foo":"bar"}`, map[string]string{"foo": "bar"}},
-	"map_interface": {`{"a":1,"b":"str","c":false}`, map[string]interface{}{"a": float64(1), "b": "str", "c": false}},
+	"map_string":                       {`{"foo":"bar"}`, map[string]string{"foo": "bar"}},
+	"map_string_with_sjson_path_chars": {`{":a.b.c*:d*-1e.f":"bar"}`, map[string]string{":a.b.c*:d*-1e.f": "bar"}},
+	"map_interface":                    {`{"a":1,"b":"str","c":false}`, map[string]interface{}{"a": float64(1), "b": "str", "c": false}},
 
 	"primitive_struct": {
 		`{"a":false,"b":237628372683,"c":654,"d":9999.43,"e":43.76,"f":[1,2,3,4]}`,
@@ -487,6 +541,15 @@ var tests = map[string]struct {
 	"complex_union_type_b": {
 		`{"union":{"baz":12,"type":"b"}}`,
 		ComplexUnionStruct{Union: ComplexUnionTypeB{Baz: 12, Type: TypeB("b")}},
+	},
+
+	"marshalling_union_a": {
+		`{"boo":"hello"}`,
+		MarshallingUnionStruct{Union: MarshallingUnionA{Boo: "hello"}},
+	},
+	"marshalling_union_b": {
+		`{"foo":"hi"}`,
+		MarshallingUnionStruct{Union: MarshallingUnionB{Foo: "hi"}},
 	},
 
 	"unmarshal": {

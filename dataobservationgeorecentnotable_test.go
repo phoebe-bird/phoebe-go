@@ -33,7 +33,7 @@ func TestDataObservationGeoRecentNotableListWithOptionalParams(t *testing.T) {
 		Dist:       phoebe.F(int64(0)),
 		Hotspot:    phoebe.F(true),
 		MaxResults: phoebe.F(int64(1)),
-		SppLocale:  phoebe.F("string"),
+		SppLocale:  phoebe.F("sppLocale"),
 	})
 	if err != nil {
 		var apierr *phoebe.Error

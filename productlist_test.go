@@ -27,7 +27,7 @@ func TestProductListGetWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.Product.Lists.Get(
 		context.TODO(),
-		"string",
+		"regionCode",
 		phoebe.ProductListGetParams{
 			MaxResults: phoebe.F(int64(1)),
 		},

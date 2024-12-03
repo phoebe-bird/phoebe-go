@@ -27,8 +27,8 @@ func TestRefRegionListListWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.Ref.Region.List.List(
 		context.TODO(),
-		"string",
-		"string",
+		"regionType",
+		"parentRegionCode",
 		phoebe.RefRegionListListParams{
 			Fmt: phoebe.F(phoebe.RefRegionListListParamsFmtCsv),
 		},

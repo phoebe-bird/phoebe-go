@@ -24,7 +24,7 @@ Or to pin the version:
 <!-- x-release-please-start-version -->
 
 ```sh
-go get -u 'github.com/phoebe-bird/phoebe-go@v0.1.0-alpha.2'
+go get -u 'github.com/phoebe-bird/phoebe-go@v0.1.0-alpha.3'
 ```
 
 <!-- x-release-please-end -->
@@ -52,11 +52,11 @@ func main() {
 	client := phoebe.NewClient(
 		option.WithAPIKey("My API Key"), // defaults to os.LookupEnv("EBIRD_API_KEY")
 	)
-	refHotspotInfoGetResponse, err := client.Ref.Hotspot.Info.Get(context.TODO(), "L99381")
+	info, err := client.Ref.Hotspot.Info.Get(context.TODO(), "L99381")
 	if err != nil {
 		panic(err.Error())
 	}
-	fmt.Printf("%+v\n", refHotspotInfoGetResponse.CountryCode)
+	fmt.Printf("%+v\n", info.CountryCode)
 }
 
 ```
@@ -338,3 +338,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
 We are keen for your feedback; please open an [issue](https://www.github.com/phoebe-bird/phoebe-go/issues) with questions, bugs, or suggestions.
+
+## Contributing
+
+See [the contributing documentation](./CONTRIBUTING.md).

@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0-alpha.3 (2024-11-12)
+
+Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
+
+### Bug Fixes
+
+* **api:** get repo clean ([#13](https://github.com/phoebe-bird/phoebe-go/issues/13)) ([0a7a20e](https://github.com/phoebe-bird/phoebe-go/commit/0a7a20e6d5d23c12d864bae7d5940248ea732feb))
+
+
+### Chores
+
+* rebuild project due to codegen change ([#16](https://github.com/phoebe-bird/phoebe-go/issues/16)) ([7ce37c8](https://github.com/phoebe-bird/phoebe-go/commit/7ce37c8deb76388d9d1b9684113bb56018986a72))
+* rebuild project due to codegen change ([#17](https://github.com/phoebe-bird/phoebe-go/issues/17)) ([7a3d5fc](https://github.com/phoebe-bird/phoebe-go/commit/7a3d5fcc1f4d2dc89dcac24980ad9fb29cdc86d6))
+
 ## 0.1.0-alpha.2 (2024-07-07)
 
 Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)

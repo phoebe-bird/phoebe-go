@@ -27,7 +27,7 @@ func TestProductTop100GetWithOptionalParams(t *testing.T) {
 	)
 	_, err := client.Product.Top100.Get(
 		context.TODO(),
-		"string",
+		"regionCode",
 		int64(0),
 		int64(1),
 		int64(1),
