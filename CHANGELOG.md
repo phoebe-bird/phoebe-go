@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.1.0-alpha.4 (2025-01-29)
+
+Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
+
+### Bug Fixes
+
+* fix apijson.Port for embedded structs ([#24](https://github.com/phoebe-bird/phoebe-go/issues/24)) ([95355e3](https://github.com/phoebe-bird/phoebe-go/commit/95355e3890c4d9365db944f676c0bb0774b4927a))
+* fix apijson.Port for embedded structs ([#25](https://github.com/phoebe-bird/phoebe-go/issues/25)) ([aca76ce](https://github.com/phoebe-bird/phoebe-go/commit/aca76cebb3a8d0a497d7f9e92129656f4ee7998f))
+
+
+### Chores
+
+* bump license year ([#22](https://github.com/phoebe-bird/phoebe-go/issues/22)) ([51abcdf](https://github.com/phoebe-bird/phoebe-go/commit/51abcdf3b4d7b5f504d9eb65f25a39a5357b605b))
+* **internal:** codegen related update ([#19](https://github.com/phoebe-bird/phoebe-go/issues/19)) ([1937370](https://github.com/phoebe-bird/phoebe-go/commit/193737065aaffb9282bf768abd13e85900f5b5de))
+* **internal:** codegen related update ([#21](https://github.com/phoebe-bird/phoebe-go/issues/21)) ([39b5291](https://github.com/phoebe-bird/phoebe-go/commit/39b5291c45312a0fa34489c81d823230b8f9a1e9))
+* **internal:** codegen related update ([#23](https://github.com/phoebe-bird/phoebe-go/issues/23)) ([1044bec](https://github.com/phoebe-bird/phoebe-go/commit/1044bec365c34746c7426e3204b4859f3b9794c8))
+* refactor client tests ([#26](https://github.com/phoebe-bird/phoebe-go/issues/26)) ([fdb33b1](https://github.com/phoebe-bird/phoebe-go/commit/fdb33b1d759e11df6938a8e8a1723be470d9f76e))
+
 ## 0.1.0-alpha.3 (2024-11-12)
 
 Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
