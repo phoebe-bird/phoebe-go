@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.5 (2025-02-01)
+
+Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
+
+### Bug Fixes
+
+* fix unicode encoding for json ([#28](https://github.com/phoebe-bird/phoebe-go/issues/28)) ([276534f](https://github.com/phoebe-bird/phoebe-go/commit/276534f829f813e5a046a2079221b7d57548c87a))
+
 ## 0.1.0-alpha.4 (2025-01-29)
 
 Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
