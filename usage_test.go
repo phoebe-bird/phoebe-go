@@ -27,6 +27,7 @@ func TestUsage(t *testing.T) {
 	info, err := client.Ref.Hotspot.Info.Get(context.TODO(), "L99381")
 	if err != nil {
 		t.Error(err)
+		return
 	}
 	t.Logf("%+v\n", info.CountryCode)
 }
