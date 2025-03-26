@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.1.0-alpha.6 (2025-03-26)
+
+Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)
+
+### Features
+
+* **client:** allow custom baseurls without trailing slash ([#34](https://github.com/phoebe-bird/phoebe-go/issues/34)) ([ebe2ecf](https://github.com/phoebe-bird/phoebe-go/commit/ebe2ecf8641ac6475989f960345bec02f4600ac9))
+* **client:** improve default client options support ([#37](https://github.com/phoebe-bird/phoebe-go/issues/37)) ([96e15fd](https://github.com/phoebe-bird/phoebe-go/commit/96e15fda795f088e025c6cbdb069c295afe1ead6))
+
+
+### Bug Fixes
+
+* **test:** return early after test failure ([#41](https://github.com/phoebe-bird/phoebe-go/issues/41)) ([7c5be5c](https://github.com/phoebe-bird/phoebe-go/commit/7c5be5caa15b695f115d1ce3a9fe82d5139d6faf))
+
+
+### Chores
+
+* add request options to client tests ([#40](https://github.com/phoebe-bird/phoebe-go/issues/40)) ([5a369dd](https://github.com/phoebe-bird/phoebe-go/commit/5a369dd3481315dd97690d2253509da164c6fe57))
+* **docs:** improve security documentation ([#39](https://github.com/phoebe-bird/phoebe-go/issues/39)) ([ec2e4c1](https://github.com/phoebe-bird/phoebe-go/commit/ec2e4c167ecc6e343eab90f9dcd896b5aa6451bb))
+* **internal:** codegen related update ([#32](https://github.com/phoebe-bird/phoebe-go/issues/32)) ([7f2cb99](https://github.com/phoebe-bird/phoebe-go/commit/7f2cb9909324d2225b30d29e2ab968b51a8a15c5))
+* **internal:** codegen related update ([#35](https://github.com/phoebe-bird/phoebe-go/issues/35)) ([b7a680e](https://github.com/phoebe-bird/phoebe-go/commit/b7a680eeae6d93cd62556a6042f105f55ccc9b55))
+* **internal:** remove extra empty newlines ([#38](https://github.com/phoebe-bird/phoebe-go/issues/38)) ([73e31ed](https://github.com/phoebe-bird/phoebe-go/commit/73e31eda4deef36a0c320a3f8a558a14aaac8f43))
+
+
+### Refactors
+
+* tidy up dependencies ([#36](https://github.com/phoebe-bird/phoebe-go/issues/36)) ([16815a1](https://github.com/phoebe-bird/phoebe-go/commit/16815a1a4fbb3be9fa4d9242001f4d81ec9c141f))
+
 ## 0.1.0-alpha.5 (2025-02-01)
 
 Full Changelog: [v0.1.0-alpha.4...v0.1.0-alpha.5](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.4...v0.1.0-alpha.5)
