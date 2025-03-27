@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.7 (2025-03-27)
+
+Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
+
+### Chores
+
+* fix typos ([#43](https://github.com/phoebe-bird/phoebe-go/issues/43)) ([4825a72](https://github.com/phoebe-bird/phoebe-go/commit/4825a72992c7ba48f99363dd3443a05ca51c3ecd))
+
 ## 0.1.0-alpha.6 (2025-03-26)
 
 Full Changelog: [v0.1.0-alpha.5...v0.1.0-alpha.6](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.5...v0.1.0-alpha.6)
