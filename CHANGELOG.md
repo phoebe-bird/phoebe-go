@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0-alpha.8 (2025-04-10)
+
+Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
+
+### Features
+
+* **client:** support custom http clients ([#47](https://github.com/phoebe-bird/phoebe-go/issues/47)) ([b77ae0e](https://github.com/phoebe-bird/phoebe-go/commit/b77ae0e3dd3a2ea5d400dd29fb401864e0248740))
+
+
+### Chores
+
+* **internal:** expand CI branch coverage ([93f0ad0](https://github.com/phoebe-bird/phoebe-go/commit/93f0ad04ffe6574a27a4a3972a1b5502e6b12af3))
+* **internal:** reduce CI branch coverage ([7ec6263](https://github.com/phoebe-bird/phoebe-go/commit/7ec6263947a764af02068ae1d1d4fcb86d78afda))
+
 ## 0.1.0-alpha.7 (2025-04-03)
 
 Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
