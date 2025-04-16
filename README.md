@@ -2,8 +2,8 @@
 
 <a href="https://pkg.go.dev/github.com/phoebe-bird/phoebe-go"><img src="https://pkg.go.dev/badge/github.com/phoebe-bird/phoebe-go.svg" alt="Go Reference"></a>
 
-The Phoebe Go library provides convenient access to [the Phoebe REST
-API](https://science.ebird.org/en/use-ebird-data/download-ebird-data-products) from applications written in Go. The full API of this library can be found in [api.md](api.md).
+The Phoebe Go library provides convenient access to the [Phoebe REST API](https://science.ebird.org/en/use-ebird-data/download-ebird-data-products)
+from applications written in Go.
 
 It is generated with [Stainless](https://www.stainless.com/).
 
@@ -24,7 +24,7 @@ Or to pin the version:
 <!-- x-release-please-start-version -->
 
 ```sh
-go get -u 'github.com/phoebe-bird/phoebe-go@v0.1.0-alpha.7'
+go get -u 'github.com/phoebe-bird/phoebe-go@v0.1.0-alpha.8'
 ```
 
 <!-- x-release-please-end -->

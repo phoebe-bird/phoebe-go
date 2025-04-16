@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.1.0-alpha.8 (2025-04-16)
+
+Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
+
+### Features
+
+* **client:** add support for reading base URL from environment variable ([f67494c](https://github.com/phoebe-bird/phoebe-go/commit/f67494cf48669813b51f6d079f6718c88d30626c))
+* **client:** support custom http clients ([#47](https://github.com/phoebe-bird/phoebe-go/issues/47)) ([b77ae0e](https://github.com/phoebe-bird/phoebe-go/commit/b77ae0e3dd3a2ea5d400dd29fb401864e0248740))
+
+
+### Chores
+
+* **docs:** document pre-request options ([fb354a6](https://github.com/phoebe-bird/phoebe-go/commit/fb354a6cc6b0d238e18b4126742415c61be49022))
+* **internal:** expand CI branch coverage ([93f0ad0](https://github.com/phoebe-bird/phoebe-go/commit/93f0ad04ffe6574a27a4a3972a1b5502e6b12af3))
+* **internal:** reduce CI branch coverage ([7ec6263](https://github.com/phoebe-bird/phoebe-go/commit/7ec6263947a764af02068ae1d1d4fcb86d78afda))
+
+
+### Documentation
+
+* update documentation links to be more uniform ([21d4f72](https://github.com/phoebe-bird/phoebe-go/commit/21d4f72732350137d269c0114ca906c2c7df18a8))
+
 ## 0.1.0-alpha.7 (2025-04-03)
 
 Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
