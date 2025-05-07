@@ -1,5 +1,36 @@
 # Changelog
 
+## 0.1.0-alpha.8 (2025-05-07)
+
+Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
+
+### Features
+
+* **client:** add support for reading base URL from environment variable ([f67494c](https://github.com/phoebe-bird/phoebe-go/commit/f67494cf48669813b51f6d079f6718c88d30626c))
+* **client:** support custom http clients ([#47](https://github.com/phoebe-bird/phoebe-go/issues/47)) ([b77ae0e](https://github.com/phoebe-bird/phoebe-go/commit/b77ae0e3dd3a2ea5d400dd29fb401864e0248740))
+
+
+### Bug Fixes
+
+* **client:** clean up reader resources ([1e9f142](https://github.com/phoebe-bird/phoebe-go/commit/1e9f14249f327c917dfa3e43de292c72f4847ec4))
+* **client:** correctly update body in WithJSONSet ([670e890](https://github.com/phoebe-bird/phoebe-go/commit/670e8904823a8f16c56cac873e3c445b9b0db2c7))
+* handle empty bodies in WithJSONSet ([406fefe](https://github.com/phoebe-bird/phoebe-go/commit/406fefed024ce8861dd8930762a322934aae051c))
+
+
+### Chores
+
+* **ci:** add timeout thresholds for CI jobs ([0cefe8b](https://github.com/phoebe-bird/phoebe-go/commit/0cefe8be441875fc67834dad43327014ea50453c))
+* **ci:** only use depot for staging repos ([aba413a](https://github.com/phoebe-bird/phoebe-go/commit/aba413a1cdbb40b9d9161b3f4ec66ef4876b23ab))
+* **docs:** document pre-request options ([fb354a6](https://github.com/phoebe-bird/phoebe-go/commit/fb354a6cc6b0d238e18b4126742415c61be49022))
+* **internal:** codegen related update ([3824665](https://github.com/phoebe-bird/phoebe-go/commit/3824665a72a7dd9d84ccc803390f60836127d30b))
+* **internal:** expand CI branch coverage ([93f0ad0](https://github.com/phoebe-bird/phoebe-go/commit/93f0ad04ffe6574a27a4a3972a1b5502e6b12af3))
+* **internal:** reduce CI branch coverage ([7ec6263](https://github.com/phoebe-bird/phoebe-go/commit/7ec6263947a764af02068ae1d1d4fcb86d78afda))
+
+
+### Documentation
+
+* update documentation links to be more uniform ([21d4f72](https://github.com/phoebe-bird/phoebe-go/commit/21d4f72732350137d269c0114ca906c2c7df18a8))
+
 ## 0.1.0-alpha.7 (2025-04-03)
 
 Full Changelog: [v0.1.0-alpha.6...v0.1.0-alpha.7](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.6...v0.1.0-alpha.7)
