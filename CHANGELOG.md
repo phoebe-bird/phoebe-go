@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0-alpha.9 (2025-05-22)
+
+Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
+
+### Features
+
+* **client:** add support for endpoint-specific base URLs in python ([4e43c63](https://github.com/phoebe-bird/phoebe-go/commit/4e43c6374ab88e96a2361542fa916cfcfe10ded7))
+
+
+### Chores
+
+* **docs:** grammar improvements ([8d6526c](https://github.com/phoebe-bird/phoebe-go/commit/8d6526cf4aa5a2eb0c1862bdfe10d9b0a950b409))
+* improve devcontainer setup ([4ec61da](https://github.com/phoebe-bird/phoebe-go/commit/4ec61da1b852b3a94ef54bbea8efcf7cdc9fd2fe))
+
 ## 0.1.0-alpha.8 (2025-05-07)
 
 Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
