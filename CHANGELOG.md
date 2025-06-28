@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.1.0-alpha.9 (2025-06-28)
+
+Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
+
+### Features
+
+* **client:** add debug log helper ([bf2b23a](https://github.com/phoebe-bird/phoebe-go/commit/bf2b23a9a2484b1cf9375ec72c7d3197fcd4cbbd))
+* **client:** add support for endpoint-specific base URLs in python ([4e43c63](https://github.com/phoebe-bird/phoebe-go/commit/4e43c6374ab88e96a2361542fa916cfcfe10ded7))
+
+
+### Bug Fixes
+
+* don't try to deserialize as json when ResponseBodyInto is []byte ([060e226](https://github.com/phoebe-bird/phoebe-go/commit/060e226f4a51cfb347b6ddc269db5e99b76c2e4f))
+
+
+### Chores
+
+* **ci:** enable for pull requests ([3367448](https://github.com/phoebe-bird/phoebe-go/commit/33674489f7d78540428c8a783e7505388b303e8c))
+* **docs:** grammar improvements ([8d6526c](https://github.com/phoebe-bird/phoebe-go/commit/8d6526cf4aa5a2eb0c1862bdfe10d9b0a950b409))
+* improve devcontainer setup ([4ec61da](https://github.com/phoebe-bird/phoebe-go/commit/4ec61da1b852b3a94ef54bbea8efcf7cdc9fd2fe))
+* make go mod tidy continue on error ([19bca49](https://github.com/phoebe-bird/phoebe-go/commit/19bca499ff93549ca78d96a4301232945ee9a06b))
+
 ## 0.1.0-alpha.8 (2025-05-07)
 
 Full Changelog: [v0.1.0-alpha.7...v0.1.0-alpha.8](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.7...v0.1.0-alpha.8)
