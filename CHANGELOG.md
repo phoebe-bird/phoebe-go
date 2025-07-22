@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.0-alpha.10 (2025-07-22)
+
+Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
+
+### Bug Fixes
+
+* **client:** process custom base url ahead of time ([51e8cc6](https://github.com/phoebe-bird/phoebe-go/commit/51e8cc6b7a82368a83266a1c43c4f689b65cd69d))
+
+
+### Chores
+
+* **ci:** only run for pushes and fork pull requests ([c576996](https://github.com/phoebe-bird/phoebe-go/commit/c576996d175efffa2a84a070cbd7b7f79d6ceeda))
+* **internal:** fix lint script for tests ([f4144bc](https://github.com/phoebe-bird/phoebe-go/commit/f4144bcc82809e7ccc9e5a9c460b9da19e20f970))
+* lint tests ([aec3490](https://github.com/phoebe-bird/phoebe-go/commit/aec3490aa0eb9a04a7acbe745ba9fc7941a7c984))
+* lint tests in subpackages ([f12c91f](https://github.com/phoebe-bird/phoebe-go/commit/f12c91fdd90e0f2c43f0be0921000ecce85e7b23))
+
 ## 0.1.0-alpha.9 (2025-06-28)
 
 Full Changelog: [v0.1.0-alpha.8...v0.1.0-alpha.9](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.8...v0.1.0-alpha.9)
