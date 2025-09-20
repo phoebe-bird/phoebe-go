@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apijson"
 	"github.com/phoebe-bird/phoebe-go/internal/apiquery"
@@ -53,7 +54,7 @@ func NewProductTop100Service(opts ...option.RequestOption) (r *ProductTop100Serv
 // observations ARE included in this total numCompleteChecklists - always zero when
 // checklistSort parameter is false
 func (r *ProductTop100Service) Get(ctx context.Context, regionCode string, y int64, m int64, d int64, query ProductTop100GetParams, opts ...option.RequestOption) (res *[]ProductTop100GetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
 		return

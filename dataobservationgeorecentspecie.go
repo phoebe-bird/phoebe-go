@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apiquery"
 	"github.com/phoebe-bird/phoebe-go/internal/param"
@@ -50,7 +51,7 @@ func NewDataObservationGeoRecentSpecieService(opts ...option.RequestOption) (r *
 // The species code is typically a 6-letter code, e.g. horlar for Horned Lark. You
 // can get complete set of species code from the GET eBird Taxonomy end-point.
 func (r *DataObservationGeoRecentSpecieService) List(ctx context.Context, speciesCode string, query DataObservationGeoRecentSpecieListParams, opts ...option.RequestOption) (res *[]Observation, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if speciesCode == "" {
 		err = errors.New("missing required speciesCode parameter")
 		return

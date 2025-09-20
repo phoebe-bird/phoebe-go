@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apijson"
 	"github.com/phoebe-bird/phoebe-go/internal/apiquery"
@@ -39,7 +40,7 @@ func NewProductListService(opts ...option.RequestOption) (r *ProductListService)
 
 // Get information on the most recently submitted checklists for a region.
 func (r *ProductListService) Get(ctx context.Context, regionCode string, query ProductListGetParams, opts ...option.RequestOption) (res *[]ProductListGetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
 		return

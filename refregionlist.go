@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apijson"
 	"github.com/phoebe-bird/phoebe-go/internal/apiquery"
@@ -40,7 +41,7 @@ func NewRefRegionListService(opts ...option.RequestOption) (r *RefRegionListServ
 // subnational1 or subnational2 regions for a country however you can only specify
 // a region type of 'country' when using 'world' as a region code.
 func (r *RefRegionListService) List(ctx context.Context, regionType string, parentRegionCode string, query RefRegionListListParams, opts ...option.RequestOption) (res *[]RefRegionListListResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if regionType == "" {
 		err = errors.New("missing required regionType parameter")
 		return

@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apiquery"
 	"github.com/phoebe-bird/phoebe-go/internal/param"
@@ -46,7 +47,7 @@ func NewDataObservationRecentSpecieService(opts ...option.RequestOption) (r *Dat
 // When using the _r_ query parameter set the _regionCode_ URL parameter to an
 // empty string.
 func (r *DataObservationRecentSpecieService) Get(ctx context.Context, regionCode string, speciesCode string, query DataObservationRecentSpecieGetParams, opts ...option.RequestOption) (res *[]Observation, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
 		return

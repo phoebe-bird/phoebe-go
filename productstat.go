@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apijson"
 	"github.com/phoebe-bird/phoebe-go/internal/requestconfig"
@@ -37,7 +38,7 @@ func NewProductStatService(opts ...option.RequestOption) (r *ProductStatService)
 //
 // #### Notes The results are updated every 15 minutes.
 func (r *ProductStatService) Get(ctx context.Context, regionCode string, y int64, m int64, d int64, opts ...option.RequestOption) (res *ProductStatGetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
 		return

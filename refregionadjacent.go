@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apijson"
 	"github.com/phoebe-bird/phoebe-go/internal/requestconfig"
@@ -36,7 +37,7 @@ func NewRefRegionAdjacentService(opts ...option.RequestOption) (r *RefRegionAdja
 // Notes Only subnational2 codes in the United States, New Zealand, or Mexico are
 // currently supported
 func (r *RefRegionAdjacentService) List(ctx context.Context, regionCode string, opts ...option.RequestOption) (res *[]RefRegionAdjacentListResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
 		return

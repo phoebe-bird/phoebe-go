@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apiquery"
 	"github.com/phoebe-bird/phoebe-go/internal/param"
@@ -39,7 +40,7 @@ func NewDataObservationRecentNotableService(opts ...option.RequestOption) (r *Da
 // nationally rare species or are otherwise unusual, e.g. over-wintering birds in a
 // species which is normally only a summer visitor.
 func (r *DataObservationRecentNotableService) List(ctx context.Context, regionCode string, query DataObservationRecentNotableListParams, opts ...option.RequestOption) (res *[]Observation, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
 		return

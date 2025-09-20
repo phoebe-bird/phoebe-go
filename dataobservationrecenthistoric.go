@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apiquery"
 	"github.com/phoebe-bird/phoebe-go/internal/param"
@@ -40,7 +41,7 @@ func NewDataObservationRecentHistoricService(opts ...option.RequestOption) (r *D
 //
 // #### Notes Responses may be cached for 30 minutes
 func (r *DataObservationRecentHistoricService) List(ctx context.Context, regionCode string, y int64, m int64, d int64, query DataObservationRecentHistoricListParams, opts ...option.RequestOption) (res *[]Observation, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
 		return

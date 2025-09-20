@@ -6,6 +6,7 @@ import (
 	"context"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apijson"
 	"github.com/phoebe-bird/phoebe-go/internal/apiquery"
@@ -38,7 +39,7 @@ func NewRefTaxonomyEbirdService(opts ...option.RequestOption) (r *RefTaxonomyEbi
 // for selected species using the _species_ query parameter with a comma separating
 // each code. Otherwise the full taxonomy is downloaded.
 func (r *RefTaxonomyEbirdService) Get(ctx context.Context, query RefTaxonomyEbirdGetParams, opts ...option.RequestOption) (res *[]RefTaxonomyEbirdGetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "ref/taxonomy/ebird"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return

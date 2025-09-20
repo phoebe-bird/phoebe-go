@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apijson"
 	"github.com/phoebe-bird/phoebe-go/internal/apiquery"
@@ -38,7 +39,7 @@ func NewProductListHistoricalService(opts ...option.RequestOption) (r *ProductLi
 // Get information on the checklists submitted on a given date for a country or
 // region.
 func (r *ProductListHistoricalService) Get(ctx context.Context, regionCode string, y int64, m int64, d int64, query ProductListHistoricalGetParams, opts ...option.RequestOption) (res *[]ProductListHistoricalGetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
 		return
