@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apijson"
 	"github.com/phoebe-bird/phoebe-go/internal/apiquery"
@@ -51,7 +52,7 @@ func NewRefRegionInfoService(opts ...option.RequestOption) (r *RefRegionInfoServ
 // | nameonly       | return only the name of the region         | Madison                          |
 // | revdetailed    | return the detailed description in reverse | US, New York, Madison County     |
 func (r *RefRegionInfoService) Get(ctx context.Context, regionCode string, query RefRegionInfoGetParams, opts ...option.RequestOption) (res *RefRegionInfoGetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
 		return

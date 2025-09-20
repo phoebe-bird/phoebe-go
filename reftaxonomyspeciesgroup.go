@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apijson"
 	"github.com/phoebe-bird/phoebe-go/internal/apiquery"
@@ -38,7 +39,7 @@ func NewRefTaxonomySpeciesGroupService(opts ...option.RequestOption) (r *RefTaxo
 // like birds together, with Falcons next to Hawks, whereas eBird follows taxonomic
 // order.
 func (r *RefTaxonomySpeciesGroupService) List(ctx context.Context, speciesGrouping RefTaxonomySpeciesGroupListParamsSpeciesGrouping, query RefTaxonomySpeciesGroupListParams, opts ...option.RequestOption) (res *[]RefTaxonomySpeciesGroupListResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := fmt.Sprintf("ref/sppgroup/%v", speciesGrouping)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return

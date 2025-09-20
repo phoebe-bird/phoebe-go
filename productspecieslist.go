@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/requestconfig"
 	"github.com/phoebe-bird/phoebe-go/option"
@@ -36,7 +37,7 @@ func NewProductSpeciesListService(opts ...option.RequestOption) (r *ProductSpeci
 //
 // #### Notes The results are usually updated every 10 seconds for locations, every day for larger regions.
 func (r *ProductSpeciesListService) List(ctx context.Context, regionCode string, opts ...option.RequestOption) (res *[]string, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
 		return

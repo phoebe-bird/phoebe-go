@@ -6,6 +6,7 @@ import (
 	"context"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apiquery"
 	"github.com/phoebe-bird/phoebe-go/internal/param"
@@ -41,7 +42,7 @@ func NewDataObservationGeoRecentService(opts ...option.RequestOption) (r *DataOb
 // coordinates. Results include only the most recent observation for each species
 // in the region specified.
 func (r *DataObservationGeoRecentService) List(ctx context.Context, query DataObservationGeoRecentListParams, opts ...option.RequestOption) (res *[]Observation, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "data/obs/geo/recent"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return

@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apijson"
 	"github.com/phoebe-bird/phoebe-go/internal/requestconfig"
@@ -36,7 +37,7 @@ func NewProductChecklistService(opts ...option.RequestOption) (r *ProductCheckli
 //
 // #### Notes Do NOT use this to download large amounts of data. You will be banned if you do. In the fields for each observation, the following fields are duplicates or obsolete and will be removed at a future date: _howManyAtleast_, _howManyAtmost_, _hideFlags_, _projId_, _subId_, _subnational1Code_ and _present_.
 func (r *ProductChecklistService) View(ctx context.Context, subID string, opts ...option.RequestOption) (res *ProductChecklistViewResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if subID == "" {
 		err = errors.New("missing required subId parameter")
 		return

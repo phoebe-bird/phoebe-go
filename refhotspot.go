@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apijson"
 	"github.com/phoebe-bird/phoebe-go/internal/apiquery"
@@ -41,7 +42,7 @@ func NewRefHotspotService(opts ...option.RequestOption) (r *RefHotspotService) {
 
 // Hotspots in a region
 func (r *RefHotspotService) List(ctx context.Context, regionCode string, query RefHotspotListParams, opts ...option.RequestOption) (res *[]RefHotspotListResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
 		return

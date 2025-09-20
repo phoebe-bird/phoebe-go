@@ -5,6 +5,7 @@ package phoebe
 import (
 	"context"
 	"net/http"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apijson"
 	"github.com/phoebe-bird/phoebe-go/internal/requestconfig"
@@ -33,7 +34,7 @@ func NewRefTaxonomyVersionService(opts ...option.RequestOption) (r *RefTaxonomyV
 // Returns a list of all versions of the taxonomy, with a flag indicating which is
 // the latest.
 func (r *RefTaxonomyVersionService) List(ctx context.Context, opts ...option.RequestOption) (res *[]RefTaxonomyVersionListResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "ref/taxonomy/versions"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return

@@ -6,6 +6,7 @@ import (
 	"context"
 	"fmt"
 	"net/http"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apijson"
 	"github.com/phoebe-bird/phoebe-go/internal/param"
@@ -42,7 +43,7 @@ func (r *RefTaxonomyLocaleService) List(ctx context.Context, query RefTaxonomyLo
 	if query.AcceptLanguage.Present {
 		opts = append(opts, option.WithHeader("Accept-Language", fmt.Sprintf("%s", query.AcceptLanguage)))
 	}
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "ref/taxa-locales/ebird"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return
