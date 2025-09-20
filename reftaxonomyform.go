@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/requestconfig"
 	"github.com/phoebe-bird/phoebe-go/option"
@@ -34,7 +35,7 @@ func NewRefTaxonomyFormService(opts ...option.RequestOption) (r *RefTaxonomyForm
 // For a species, get the list of subspecies recognised in the taxonomy. The
 // results include the species that was passed in.
 func (r *RefTaxonomyFormService) List(ctx context.Context, speciesCode string, opts ...option.RequestOption) (res *[]string, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if speciesCode == "" {
 		err = errors.New("missing required speciesCode parameter")
 		return

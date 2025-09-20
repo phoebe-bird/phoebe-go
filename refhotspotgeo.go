@@ -6,6 +6,7 @@ import (
 	"context"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apijson"
 	"github.com/phoebe-bird/phoebe-go/internal/apiquery"
@@ -36,7 +37,7 @@ func NewRefHotspotGeoService(opts ...option.RequestOption) (r *RefHotspotGeoServ
 // Get the list of hotspots, within a radius of up to 50 kilometers, from a given
 // set of coordinates.
 func (r *RefHotspotGeoService) Get(ctx context.Context, query RefHotspotGeoGetParams, opts ...option.RequestOption) (res *[]RefHotspotGeoGetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "ref/hotspot/geo"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return

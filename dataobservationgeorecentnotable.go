@@ -6,6 +6,7 @@ import (
 	"context"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apiquery"
 	"github.com/phoebe-bird/phoebe-go/internal/param"
@@ -38,7 +39,7 @@ func NewDataObservationGeoRecentNotableService(opts ...option.RequestOption) (r 
 // or are otherwise unusual, for example over-wintering birds in a species which is
 // normally only a summer visitor.
 func (r *DataObservationGeoRecentNotableService) List(ctx context.Context, query DataObservationGeoRecentNotableListParams, opts ...option.RequestOption) (res *[]Observation, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	path := "data/obs/geo/recent/notable"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
 	return

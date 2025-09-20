@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apijson"
 	"github.com/phoebe-bird/phoebe-go/internal/requestconfig"
@@ -36,7 +37,7 @@ func NewRefHotspotInfoService(opts ...option.RequestOption) (r *RefHotspotInfoSe
 // works for hotspots. If you pass the location code for a private location or an
 // invalid location code then an HTTP 410 (Gone) error is returned.
 func (r *RefHotspotInfoService) Get(ctx context.Context, locID string, opts ...option.RequestOption) (res *RefHotspotInfoGetResponse, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if locID == "" {
 		err = errors.New("missing required locId parameter")
 		return

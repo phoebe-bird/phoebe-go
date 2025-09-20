@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"slices"
 
 	"github.com/phoebe-bird/phoebe-go/internal/apiquery"
 	"github.com/phoebe-bird/phoebe-go/internal/param"
@@ -44,7 +45,7 @@ func NewDataObservationRecentService(opts ...option.RequestOption) (r *DataObser
 // country, state, county, or location. Results include only the most recent
 // observation for each species in the region specified.
 func (r *DataObservationRecentService) List(ctx context.Context, regionCode string, query DataObservationRecentListParams, opts ...option.RequestOption) (res *[]Observation, err error) {
-	opts = append(r.Options[:], opts...)
+	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
 		return
