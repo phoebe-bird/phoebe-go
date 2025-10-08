@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.1.0-alpha.11 (2025-10-08)
+
+Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
+
+### Features
+
+* **client:** support optional json html escaping ([63dc659](https://github.com/phoebe-bird/phoebe-go/commit/63dc6598151cf469f0927251d2004d89512c11e8))
+
+
+### Bug Fixes
+
+* close body before retrying ([0b46486](https://github.com/phoebe-bird/phoebe-go/commit/0b464866bdeb7cb584dbbc57af84922b3aba710e))
+* use slices.Concat instead of sometimes modifying r.Options ([9f64eea](https://github.com/phoebe-bird/phoebe-go/commit/9f64eeaade594b581b917ad84b4306fb4fdb924e))
+
+
+### Chores
+
+* bump minimum go version to 1.22 ([5c541a8](https://github.com/phoebe-bird/phoebe-go/commit/5c541a80ac94135f66eda9494d5034baf87603d1))
+* do not install brew dependencies in ./scripts/bootstrap by default ([7119ddc](https://github.com/phoebe-bird/phoebe-go/commit/7119ddcb776046d73621459b39ef3db332a8982a))
+* **internal:** codegen related update ([65e8f5e](https://github.com/phoebe-bird/phoebe-go/commit/65e8f5e1dd1b6dbd19a94ff6c9214a94a3875ccf))
+* **internal:** update comment in script ([16dd698](https://github.com/phoebe-bird/phoebe-go/commit/16dd698779a0dc3616b8c23ff9121ae8a3f7663c))
+* update @stainless-api/prism-cli to v5.15.0 ([c5a8690](https://github.com/phoebe-bird/phoebe-go/commit/c5a8690b64ab9dd48bf88b98d84d12a9669a612f))
+* update more docs for 1.22 ([9ac1b9b](https://github.com/phoebe-bird/phoebe-go/commit/9ac1b9b8cb7f4c34b5d4ff28c1f06abc13c2774f))
+
 ## 0.1.0-alpha.10 (2025-07-22)
 
 Full Changelog: [v0.1.0-alpha.9...v0.1.0-alpha.10](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.9...v0.1.0-alpha.10)
