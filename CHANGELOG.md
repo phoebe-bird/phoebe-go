@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.13 (2025-12-06)
+
+Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
+
+### Bug Fixes
+
+* rename param to avoid collision ([5b4c026](https://github.com/phoebe-bird/phoebe-go/commit/5b4c026333f42d1d2e01041fdb7de38f3cfee533))
+
 ## 0.1.0-alpha.12 (2025-12-06)
 
 Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)
