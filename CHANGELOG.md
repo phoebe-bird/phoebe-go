@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0-alpha.12 (2025-12-06)
+
+Full Changelog: [v0.1.0-alpha.11...v0.1.0-alpha.12](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.11...v0.1.0-alpha.12)
+
+### Bug Fixes
+
+* **mcp:** correct code tool API endpoint ([83c2db3](https://github.com/phoebe-bird/phoebe-go/commit/83c2db30d5e1c8e970f18a6d8b741f0c3e1226ad))
+
+
+### Chores
+
+* elide duplicate aliases ([5412db1](https://github.com/phoebe-bird/phoebe-go/commit/5412db109804bd1900e62d743576dae5dc92f88a))
+* **internal:** codegen related update ([8b9d35d](https://github.com/phoebe-bird/phoebe-go/commit/8b9d35d2a11958141d9261067fea8dda59aa9973))
+
 ## 0.1.0-alpha.11 (2025-10-08)
 
 Full Changelog: [v0.1.0-alpha.10...v0.1.0-alpha.11](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.10...v0.1.0-alpha.11)
