@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.1.0-alpha.14 (2026-01-17)
+
+Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
+
+### Bug Fixes
+
+* **docs:** add missing pointer prefix to api.md return types ([9ad4a34](https://github.com/phoebe-bird/phoebe-go/commit/9ad4a34c6043a2138ad98c49bdf614659d88e21a))
+
+
+### Chores
+
+* **internal:** codegen related update ([3ce0807](https://github.com/phoebe-bird/phoebe-go/commit/3ce08075cb3d647566008f63ad7689d8696552cf))
+* **internal:** update `actions/checkout` version ([16bf443](https://github.com/phoebe-bird/phoebe-go/commit/16bf4437f774631dd94c998335eec528249dfcc8))
+
+
+### Documentation
+
+* prominently feature MCP server setup in root SDK readmes ([b393e06](https://github.com/phoebe-bird/phoebe-go/commit/b393e06f2fb3736907525f33d3c8707b5569e29f))
+
 ## 0.1.0-alpha.13 (2025-12-06)
 
 Full Changelog: [v0.1.0-alpha.12...v0.1.0-alpha.13](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.12...v0.1.0-alpha.13)
