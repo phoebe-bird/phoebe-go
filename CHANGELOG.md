@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.15 (2026-01-29)
+
+Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
+
+### Bug Fixes
+
+* **docs:** fix mcp installation instructions for remote servers ([f6a4bae](https://github.com/phoebe-bird/phoebe-go/commit/f6a4bae4018b12bbde55c1578f213a002f739120))
+
 ## 0.1.0-alpha.14 (2026-01-17)
 
 Full Changelog: [v0.1.0-alpha.13...v0.1.0-alpha.14](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.13...v0.1.0-alpha.14)
