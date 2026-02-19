@@ -41,7 +41,7 @@ func NewRefTaxonomyLocaleService(opts ...option.RequestOption) (r *RefTaxonomyLo
 // are not yet finalized and should be used with caution.
 func (r *RefTaxonomyLocaleService) List(ctx context.Context, query RefTaxonomyLocaleListParams, opts ...option.RequestOption) (res *[]RefTaxonomyLocaleListResponse, err error) {
 	if query.AcceptLanguage.Present {
-		opts = append(opts, option.WithHeader("Accept-Language", fmt.Sprintf("%s", query.AcceptLanguage)))
+		opts = append(opts, option.WithHeader("Accept-Language", fmt.Sprintf("%v", query.AcceptLanguage)))
 	}
 	opts = slices.Concat(r.Options, opts)
 	path := "ref/taxa-locales/ebird"
