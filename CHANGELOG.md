@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.16 (2026-02-19)
+
+Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)
+
+### Bug Fixes
+
+* **client:** use correct format specifier for header serialization ([5600b6f](https://github.com/phoebe-bird/phoebe-go/commit/5600b6f8fde06336c12075ffb3d0fc1f7fccbc1f))
+
 ## 0.1.0-alpha.15 (2026-01-29)
 
 Full Changelog: [v0.1.0-alpha.14...v0.1.0-alpha.15](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.14...v0.1.0-alpha.15)
