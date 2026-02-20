@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.17 (2026-02-20)
+
+Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
+
+### Bug Fixes
+
+* allow canceling a request while it is waiting to retry ([ea55520](https://github.com/phoebe-bird/phoebe-go/commit/ea55520cd6f0499b34ff8fef2d1da84153cfb47c))
+
+
+### Chores
+
+* update mock server docs ([217ba9c](https://github.com/phoebe-bird/phoebe-go/commit/217ba9c310be4b5fc13f0d5fe3aae391a33a4fb1))
+
 ## 0.1.0-alpha.16 (2026-02-19)
 
 Full Changelog: [v0.1.0-alpha.15...v0.1.0-alpha.16](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.15...v0.1.0-alpha.16)
