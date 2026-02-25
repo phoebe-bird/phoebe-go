@@ -81,8 +81,8 @@ func (r refHotspotGeoGetResponseJSON) RawJSON() string {
 }
 
 type RefHotspotGeoGetParams struct {
-	Lat param.Field[float64] `query:"lat,required"`
-	Lng param.Field[float64] `query:"lng,required"`
+	Lat param.Field[float64] `query:"lat" api:"required"`
+	Lng param.Field[float64] `query:"lng" api:"required"`
 	// The number of days back to fetch hotspots.
 	Back param.Field[int64] `query:"back"`
 	// The search radius from the given position, in kilometers.
