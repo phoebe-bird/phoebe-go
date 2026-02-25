@@ -50,8 +50,8 @@ func (r *DataObservationNearestGeoSpecieService) List(ctx context.Context, speci
 }
 
 type DataObservationNearestGeoSpecieListParams struct {
-	Lat param.Field[float64] `query:"lat,required"`
-	Lng param.Field[float64] `query:"lng,required"`
+	Lat param.Field[float64] `query:"lat" api:"required"`
+	Lng param.Field[float64] `query:"lng" api:"required"`
 	// The number of days back to fetch observations.
 	Back param.Field[int64] `query:"back"`
 	// Only fetch observations within this distance of the provided lat/lng

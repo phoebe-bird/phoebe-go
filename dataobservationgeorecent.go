@@ -49,8 +49,8 @@ func (r *DataObservationGeoRecentService) List(ctx context.Context, query DataOb
 }
 
 type DataObservationGeoRecentListParams struct {
-	Lat param.Field[float64] `query:"lat,required"`
-	Lng param.Field[float64] `query:"lng,required"`
+	Lat param.Field[float64] `query:"lat" api:"required"`
+	Lng param.Field[float64] `query:"lng" api:"required"`
 	// The number of days back to fetch observations.
 	Back param.Field[int64] `query:"back"`
 	// Only fetch observations from these taxonomic categories
