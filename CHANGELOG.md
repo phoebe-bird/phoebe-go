@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.18 (2026-02-25)
+
+Full Changelog: [v0.1.0-alpha.17...v0.1.0-alpha.18](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.17...v0.1.0-alpha.18)
+
+### Chores
+
+* **internal:** move custom custom `json` tags to `api` ([e9902b2](https://github.com/phoebe-bird/phoebe-go/commit/e9902b239b2bda616c3d3cdc80d874cb8bda4618))
+
 ## 0.1.0-alpha.17 (2026-02-20)
 
 Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)
