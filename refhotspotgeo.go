@@ -15,6 +15,9 @@ import (
 	"github.com/phoebe-bird/phoebe-go/option"
 )
 
+// With the ref/hotspot end-points you can find the hotspots for a given country or
+// region or nearby hotspots
+//
 // RefHotspotGeoService contains methods and other services that help with
 // interacting with the phoebe API.
 //

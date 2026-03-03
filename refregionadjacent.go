@@ -14,6 +14,8 @@ import (
 	"github.com/phoebe-bird/phoebe-go/option"
 )
 
+// With the ref/geo end-point you can find a country's or region's neighbours.
+//
 // RefRegionAdjacentService contains methods and other services that help with
 // interacting with the phoebe API.
 //

@@ -13,8 +13,10 @@ import (
 // automatically. You should not instantiate this service directly, and instead use
 // the [NewRefService] method instead.
 type RefService struct {
-	Options  []option.RequestOption
-	Region   *RefRegionService
+	Options []option.RequestOption
+	Region  *RefRegionService
+	// With the ref/hotspot end-points you can find the hotspots for a given country or
+	// region or nearby hotspots
 	Hotspot  *RefHotspotService
 	Taxonomy *RefTaxonomyService
 }

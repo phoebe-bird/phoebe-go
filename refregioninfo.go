@@ -17,6 +17,8 @@ import (
 	"github.com/phoebe-bird/phoebe-go/option"
 )
 
+// The ref/region end-points return information on regions.
+//
 // RefRegionInfoService contains methods and other services that help with
 // interacting with the phoebe API.
 //
