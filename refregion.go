@@ -13,10 +13,13 @@ import (
 // automatically. You should not instantiate this service directly, and instead use
 // the [NewRefRegionService] method instead.
 type RefRegionService struct {
-	Options  []option.RequestOption
+	Options []option.RequestOption
+	// With the ref/geo end-point you can find a country's or region's neighbours.
 	Adjacent *RefRegionAdjacentService
-	Info     *RefRegionInfoService
-	List     *RefRegionListService
+	// The ref/region end-points return information on regions.
+	Info *RefRegionInfoService
+	// The ref/region end-points return information on regions.
+	List *RefRegionListService
 }
 
 // NewRefRegionService generates a new service that applies the given options to

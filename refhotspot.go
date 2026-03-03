@@ -17,6 +17,9 @@ import (
 	"github.com/phoebe-bird/phoebe-go/option"
 )
 
+// With the ref/hotspot end-points you can find the hotspots for a given country or
+// region or nearby hotspots
+//
 // RefHotspotService contains methods and other services that help with interacting
 // with the phoebe API.
 //
@@ -25,8 +28,12 @@ import (
 // the [NewRefHotspotService] method instead.
 type RefHotspotService struct {
 	Options []option.RequestOption
-	Geo     *RefHotspotGeoService
-	Info    *RefHotspotInfoService
+	// With the ref/hotspot end-points you can find the hotspots for a given country or
+	// region or nearby hotspots
+	Geo *RefHotspotGeoService
+	// With the ref/hotspot end-points you can find the hotspots for a given country or
+	// region or nearby hotspots
+	Info *RefHotspotInfoService
 }
 
 // NewRefHotspotService generates a new service that applies the given options to
