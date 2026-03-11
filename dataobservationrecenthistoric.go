@@ -50,11 +50,11 @@ func (r *DataObservationRecentHistoricService) List(ctx context.Context, regionC
 	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("data/obs/%s/historic/%v/%v/%v", regionCode, y, m, d)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type DataObservationRecentHistoricListParams struct {

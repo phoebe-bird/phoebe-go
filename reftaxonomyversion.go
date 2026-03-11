@@ -37,7 +37,7 @@ func (r *RefTaxonomyVersionService) List(ctx context.Context, opts ...option.Req
 	opts = slices.Concat(r.Options, opts)
 	path := "ref/taxonomy/versions"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
 
 type RefTaxonomyVersionListResponse struct {

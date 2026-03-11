@@ -48,7 +48,7 @@ func (r *DataObservationGeoRecentNotableService) List(ctx context.Context, query
 	opts = slices.Concat(r.Options, opts)
 	path := "data/obs/geo/recent/notable"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type DataObservationGeoRecentNotableListParams struct {

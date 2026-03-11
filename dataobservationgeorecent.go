@@ -61,7 +61,7 @@ func (r *DataObservationGeoRecentService) List(ctx context.Context, query DataOb
 	opts = slices.Concat(r.Options, opts)
 	path := "data/obs/geo/recent"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type DataObservationGeoRecentListParams struct {

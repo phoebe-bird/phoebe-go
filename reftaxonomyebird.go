@@ -42,7 +42,7 @@ func (r *RefTaxonomyEbirdService) Get(ctx context.Context, query RefTaxonomyEbir
 	opts = slices.Concat(r.Options, opts)
 	path := "ref/taxonomy/ebird"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type RefTaxonomyEbirdGetResponse struct {

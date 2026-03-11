@@ -43,11 +43,11 @@ func (r *RefHotspotInfoService) Get(ctx context.Context, locID string, opts ...o
 	opts = slices.Concat(r.Options, opts)
 	if locID == "" {
 		err = errors.New("missing required locId parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("ref/hotspot/info/%s", locID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
 
 type RefHotspotInfoGetResponse struct {

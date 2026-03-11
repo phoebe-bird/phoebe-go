@@ -54,11 +54,11 @@ func (r *ProductListService) Get(ctx context.Context, regionCode string, query P
 	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("product/lists/%s", regionCode)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type ProductListGetResponse struct {
