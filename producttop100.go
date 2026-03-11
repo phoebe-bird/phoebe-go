@@ -63,11 +63,11 @@ func (r *ProductTop100Service) Get(ctx context.Context, regionCode string, y int
 	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("product/top100/%s/%v/%v/%v", regionCode, y, m, d)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type ProductTop100GetResponse struct {

@@ -48,11 +48,11 @@ func (r *DataObservationNearestGeoSpecieService) List(ctx context.Context, speci
 	opts = slices.Concat(r.Options, opts)
 	if speciesCode == "" {
 		err = errors.New("missing required speciesCode parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("data/nearest/geo/recent/%s", speciesCode)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type DataObservationNearestGeoSpecieListParams struct {

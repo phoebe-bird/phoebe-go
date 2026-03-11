@@ -46,7 +46,7 @@ func (r *RefTaxonomyLocaleService) List(ctx context.Context, query RefTaxonomyLo
 	opts = slices.Concat(r.Options, opts)
 	path := "ref/taxa-locales/ebird"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
 
 type RefTaxonomyLocaleListResponse struct {

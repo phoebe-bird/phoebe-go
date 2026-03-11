@@ -46,11 +46,11 @@ func (r *ProductChecklistService) View(ctx context.Context, subID string, opts .
 	opts = slices.Concat(r.Options, opts)
 	if subID == "" {
 		err = errors.New("missing required subId parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("product/checklist/view/%s", subID)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
 
 type ProductChecklistViewResponse struct {

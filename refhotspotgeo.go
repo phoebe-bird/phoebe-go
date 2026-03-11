@@ -43,7 +43,7 @@ func (r *RefHotspotGeoService) Get(ctx context.Context, query RefHotspotGeoGetPa
 	opts = slices.Concat(r.Options, opts)
 	path := "ref/hotspot/geo"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type RefHotspotGeoGetResponse struct {

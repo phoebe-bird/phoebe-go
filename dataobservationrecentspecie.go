@@ -56,15 +56,15 @@ func (r *DataObservationRecentSpecieService) Get(ctx context.Context, regionCode
 	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
-		return
+		return nil, err
 	}
 	if speciesCode == "" {
 		err = errors.New("missing required speciesCode parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("data/obs/%s/recent/%s", regionCode, speciesCode)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type DataObservationRecentSpecieGetParams struct {

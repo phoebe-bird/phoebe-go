@@ -49,11 +49,11 @@ func (r *DataObservationRecentNotableService) List(ctx context.Context, regionCo
 	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("data/obs/%s/recent/notable", regionCode)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type DataObservationRecentNotableListParams struct {
