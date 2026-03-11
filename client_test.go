@@ -38,7 +38,7 @@ func TestUserAgentHeader(t *testing.T) {
 			},
 		}),
 	)
-	client.Ref.Hotspot.Info.Get(context.Background(), "L99381")
+	_, _ = client.Ref.Hotspot.Info.Get(context.Background(), "L99381")
 	if userAgent != fmt.Sprintf("Phoebe/Go %s", internal.PackageVersion) {
 		t.Errorf("Expected User-Agent to be correct, but got: %#v", userAgent)
 	}

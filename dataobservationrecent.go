@@ -16,6 +16,12 @@ import (
 	"github.com/phoebe-bird/phoebe-go/option"
 )
 
+// The data/obs end-points are used to fetch observations submitted to eBird in
+// checklists. There are two categories of end-point: 1. Fetch observations for a
+// specific country, region or location. 2. Fetch observations for nearby
+// locations - up to a distance of 50km. Each end-point supports optional query
+// parameters which allow you to filter the list of observations returned.
+//
 // DataObservationRecentService contains methods and other services that help with
 // interacting with the phoebe API.
 //
@@ -23,9 +29,24 @@ import (
 // automatically. You should not instantiate this service directly, and instead use
 // the [NewDataObservationRecentService] method instead.
 type DataObservationRecentService struct {
-	Options  []option.RequestOption
-	Notable  *DataObservationRecentNotableService
-	Species  *DataObservationRecentSpecieService
+	Options []option.RequestOption
+	// The data/obs end-points are used to fetch observations submitted to eBird in
+	// checklists. There are two categories of end-point: 1. Fetch observations for a
+	// specific country, region or location. 2. Fetch observations for nearby
+	// locations - up to a distance of 50km. Each end-point supports optional query
+	// parameters which allow you to filter the list of observations returned.
+	Notable *DataObservationRecentNotableService
+	// The data/obs end-points are used to fetch observations submitted to eBird in
+	// checklists. There are two categories of end-point: 1. Fetch observations for a
+	// specific country, region or location. 2. Fetch observations for nearby
+	// locations - up to a distance of 50km. Each end-point supports optional query
+	// parameters which allow you to filter the list of observations returned.
+	Species *DataObservationRecentSpecieService
+	// The data/obs end-points are used to fetch observations submitted to eBird in
+	// checklists. There are two categories of end-point: 1. Fetch observations for a
+	// specific country, region or location. 2. Fetch observations for nearby
+	// locations - up to a distance of 50km. Each end-point supports optional query
+	// parameters which allow you to filter the list of observations returned.
 	Historic *DataObservationRecentHistoricService
 }
 
@@ -48,11 +69,11 @@ func (r *DataObservationRecentService) List(ctx context.Context, regionCode stri
 	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("data/obs/%s/recent", regionCode)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type DataObservationRecentListParams struct {

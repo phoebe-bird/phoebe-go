@@ -17,6 +17,12 @@ import (
 	"github.com/phoebe-bird/phoebe-go/option"
 )
 
+// The data/obs end-points are used to fetch observations submitted to eBird in
+// checklists. There are two categories of end-point: 1. Fetch observations for a
+// specific country, region or location. 2. Fetch observations for nearby
+// locations - up to a distance of 50km. Each end-point supports optional query
+// parameters which allow you to filter the list of observations returned.
+//
 // ProductListService contains methods and other services that help with
 // interacting with the phoebe API.
 //
@@ -24,7 +30,12 @@ import (
 // automatically. You should not instantiate this service directly, and instead use
 // the [NewProductListService] method instead.
 type ProductListService struct {
-	Options    []option.RequestOption
+	Options []option.RequestOption
+	// The product end-points make it easy to get the information shown in various
+	// pages on the eBird web site: 1. The Top 100 contributors on a given date. 2. The
+	// checklists submitted on a given date. 3. The most recent checklists
+	// submitted. 4. A summary of the checklists submitted on a given date. 5. The
+	// details and all the observations of a checklist.
 	Historical *ProductListHistoricalService
 }
 
@@ -43,11 +54,11 @@ func (r *ProductListService) Get(ctx context.Context, regionCode string, query P
 	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("product/lists/%s", regionCode)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type ProductListGetResponse struct {

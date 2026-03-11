@@ -17,6 +17,8 @@ import (
 	"github.com/phoebe-bird/phoebe-go/option"
 )
 
+// The ref/region end-points return information on regions.
+//
 // RefRegionInfoService contains methods and other services that help with
 // interacting with the phoebe API.
 //
@@ -55,11 +57,11 @@ func (r *RefRegionInfoService) Get(ctx context.Context, regionCode string, query
 	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("ref/region/info/%s", regionCode)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type RefRegionInfoGetResponse struct {

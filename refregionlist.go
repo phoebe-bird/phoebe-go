@@ -17,6 +17,8 @@ import (
 	"github.com/phoebe-bird/phoebe-go/option"
 )
 
+// The ref/region end-points return information on regions.
+//
 // RefRegionListService contains methods and other services that help with
 // interacting with the phoebe API.
 //
@@ -44,15 +46,15 @@ func (r *RefRegionListService) List(ctx context.Context, regionType string, pare
 	opts = slices.Concat(r.Options, opts)
 	if regionType == "" {
 		err = errors.New("missing required regionType parameter")
-		return
+		return nil, err
 	}
 	if parentRegionCode == "" {
 		err = errors.New("missing required parentRegionCode parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("ref/region/list/%s/%s", regionType, parentRegionCode)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type RefRegionListListResponse struct {

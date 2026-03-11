@@ -42,7 +42,7 @@ func (r *RefTaxonomySpeciesGroupService) List(ctx context.Context, speciesGroupi
 	opts = slices.Concat(r.Options, opts)
 	path := fmt.Sprintf("ref/sppgroup/%v", speciesGrouping)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type RefTaxonomySpeciesGroupListResponse struct {

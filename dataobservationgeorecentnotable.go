@@ -14,6 +14,12 @@ import (
 	"github.com/phoebe-bird/phoebe-go/option"
 )
 
+// The data/obs end-points are used to fetch observations submitted to eBird in
+// checklists. There are two categories of end-point: 1. Fetch observations for a
+// specific country, region or location. 2. Fetch observations for nearby
+// locations - up to a distance of 50km. Each end-point supports optional query
+// parameters which allow you to filter the list of observations returned.
+//
 // DataObservationGeoRecentNotableService contains methods and other services that
 // help with interacting with the phoebe API.
 //
@@ -42,12 +48,12 @@ func (r *DataObservationGeoRecentNotableService) List(ctx context.Context, query
 	opts = slices.Concat(r.Options, opts)
 	path := "data/obs/geo/recent/notable"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type DataObservationGeoRecentNotableListParams struct {
-	Lat param.Field[float64] `query:"lat,required"`
-	Lng param.Field[float64] `query:"lng,required"`
+	Lat param.Field[float64] `query:"lat" api:"required"`
+	Lng param.Field[float64] `query:"lng" api:"required"`
 	// The number of days back to fetch observations.
 	Back param.Field[int64] `query:"back"`
 	// Include a subset (simple), or all (full), of the fields available.

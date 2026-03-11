@@ -15,6 +15,9 @@ import (
 	"github.com/phoebe-bird/phoebe-go/option"
 )
 
+// With the ref/hotspot end-points you can find the hotspots for a given country or
+// region or nearby hotspots
+//
 // RefHotspotGeoService contains methods and other services that help with
 // interacting with the phoebe API.
 //
@@ -40,7 +43,7 @@ func (r *RefHotspotGeoService) Get(ctx context.Context, query RefHotspotGeoGetPa
 	opts = slices.Concat(r.Options, opts)
 	path := "ref/hotspot/geo"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type RefHotspotGeoGetResponse struct {
@@ -81,8 +84,8 @@ func (r refHotspotGeoGetResponseJSON) RawJSON() string {
 }
 
 type RefHotspotGeoGetParams struct {
-	Lat param.Field[float64] `query:"lat,required"`
-	Lng param.Field[float64] `query:"lng,required"`
+	Lat param.Field[float64] `query:"lat" api:"required"`
+	Lng param.Field[float64] `query:"lng" api:"required"`
 	// The number of days back to fetch hotspots.
 	Back param.Field[int64] `query:"back"`
 	// The search radius from the given position, in kilometers.

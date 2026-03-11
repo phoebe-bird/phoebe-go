@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.0-alpha.18 (2026-03-11)
+
+Full Changelog: [v0.1.0-alpha.17...v0.1.0-alpha.18](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.17...v0.1.0-alpha.18)
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([94bedf0](https://github.com/phoebe-bird/phoebe-go/commit/94bedf03659b0fa673abe5924ce312096e4b6926))
+* **internal:** codegen related update ([2fbe4b7](https://github.com/phoebe-bird/phoebe-go/commit/2fbe4b71e5d90dcf9976a83de7e0310a45f33d12))
+* **internal:** codegen related update ([1c222a8](https://github.com/phoebe-bird/phoebe-go/commit/1c222a8f8e84566dad1092c775fc0eda80fd5e50))
+* **internal:** minor cleanup ([08d26e9](https://github.com/phoebe-bird/phoebe-go/commit/08d26e985f0074737467b875ba77c948ac5bd0d2))
+* **internal:** move custom custom `json` tags to `api` ([e9902b2](https://github.com/phoebe-bird/phoebe-go/commit/e9902b239b2bda616c3d3cdc80d874cb8bda4618))
+* **internal:** use explicit returns ([8d68d34](https://github.com/phoebe-bird/phoebe-go/commit/8d68d3443fdae890aaeae632f9d93b4518416bb0))
+* **internal:** use explicit returns in more places ([9606e1a](https://github.com/phoebe-bird/phoebe-go/commit/9606e1a87ab62740cda180dea07fe80327896050))
+* **test:** do not count install time for mock server timeout ([4947c96](https://github.com/phoebe-bird/phoebe-go/commit/4947c96880e3dcc8a2e2cb6d9c9703089ae8508d))
+
 ## 0.1.0-alpha.17 (2026-02-20)
 
 Full Changelog: [v0.1.0-alpha.16...v0.1.0-alpha.17](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.16...v0.1.0-alpha.17)

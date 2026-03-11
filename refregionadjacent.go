@@ -14,6 +14,8 @@ import (
 	"github.com/phoebe-bird/phoebe-go/option"
 )
 
+// With the ref/geo end-point you can find a country's or region's neighbours.
+//
 // RefRegionAdjacentService contains methods and other services that help with
 // interacting with the phoebe API.
 //
@@ -40,11 +42,11 @@ func (r *RefRegionAdjacentService) List(ctx context.Context, regionCode string, 
 	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("ref/adjacent/%s", regionCode)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
 
 type RefRegionAdjacentListResponse struct {

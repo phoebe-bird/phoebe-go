@@ -16,6 +16,12 @@ import (
 	"github.com/phoebe-bird/phoebe-go/option"
 )
 
+// The data/obs end-points are used to fetch observations submitted to eBird in
+// checklists. There are two categories of end-point: 1. Fetch observations for a
+// specific country, region or location. 2. Fetch observations for nearby
+// locations - up to a distance of 50km. Each end-point supports optional query
+// parameters which allow you to filter the list of observations returned.
+//
 // DataObservationRecentSpecieService contains methods and other services that help
 // with interacting with the phoebe API.
 //
@@ -50,15 +56,15 @@ func (r *DataObservationRecentSpecieService) Get(ctx context.Context, regionCode
 	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
-		return
+		return nil, err
 	}
 	if speciesCode == "" {
 		err = errors.New("missing required speciesCode parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("data/obs/%s/recent/%s", regionCode, speciesCode)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type DataObservationRecentSpecieGetParams struct {

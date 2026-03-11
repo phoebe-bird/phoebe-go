@@ -17,6 +17,9 @@ import (
 	"github.com/phoebe-bird/phoebe-go/option"
 )
 
+// With the ref/hotspot end-points you can find the hotspots for a given country or
+// region or nearby hotspots
+//
 // RefHotspotService contains methods and other services that help with interacting
 // with the phoebe API.
 //
@@ -25,8 +28,12 @@ import (
 // the [NewRefHotspotService] method instead.
 type RefHotspotService struct {
 	Options []option.RequestOption
-	Geo     *RefHotspotGeoService
-	Info    *RefHotspotInfoService
+	// With the ref/hotspot end-points you can find the hotspots for a given country or
+	// region or nearby hotspots
+	Geo *RefHotspotGeoService
+	// With the ref/hotspot end-points you can find the hotspots for a given country or
+	// region or nearby hotspots
+	Info *RefHotspotInfoService
 }
 
 // NewRefHotspotService generates a new service that applies the given options to
@@ -45,11 +52,11 @@ func (r *RefHotspotService) List(ctx context.Context, regionCode string, query R
 	opts = slices.Concat(r.Options, opts)
 	if regionCode == "" {
 		err = errors.New("missing required regionCode parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("ref/hotspot/%s", regionCode)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, query, &res, opts...)
-	return
+	return res, err
 }
 
 type RefHotspotListResponse struct {

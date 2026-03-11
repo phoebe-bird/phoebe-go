@@ -38,9 +38,9 @@ func (r *RefTaxonomyFormService) List(ctx context.Context, speciesCode string, o
 	opts = slices.Concat(r.Options, opts)
 	if speciesCode == "" {
 		err = errors.New("missing required speciesCode parameter")
-		return
+		return nil, err
 	}
 	path := fmt.Sprintf("ref/taxon/forms/%s", speciesCode)
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
-	return
+	return res, err
 }
