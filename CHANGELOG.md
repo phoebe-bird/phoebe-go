@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.21 (2026-03-27)
+
+Full Changelog: [v0.1.0-alpha.20...v0.1.0-alpha.21](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.20...v0.1.0-alpha.21)
+
+### Features
+
+* **internal:** support comma format in multipart form encoding ([01b083d](https://github.com/phoebe-bird/phoebe-go/commit/01b083dc50ac4a95232a6b0163523f7bb110b1f3))
+
+
+### Chores
+
+* remove unnecessary error check for url parsing ([fa5d27f](https://github.com/phoebe-bird/phoebe-go/commit/fa5d27ffdf822a7cd27bd2e52aa83abbfd763e93))
+
 ## 0.1.0-alpha.20 (2026-03-27)
 
 Full Changelog: [v0.1.0-alpha.19...v0.1.0-alpha.20](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.19...v0.1.0-alpha.20)
