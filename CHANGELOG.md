@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.1.0-alpha.20 (2026-03-27)
+
+Full Changelog: [v0.1.0-alpha.19...v0.1.0-alpha.20](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.19...v0.1.0-alpha.20)
+
+### Bug Fixes
+
+* prevent duplicate ? in query params ([94aaa8b](https://github.com/phoebe-bird/phoebe-go/commit/94aaa8b8400fd379a5941e049eb6d7533b2ed2d7))
+
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([73180e8](https://github.com/phoebe-bird/phoebe-go/commit/73180e8dd2de4cf4952dfb773ca5f722b6254380))
+* **internal:** update gitignore ([6da0601](https://github.com/phoebe-bird/phoebe-go/commit/6da0601931d7a651ba3d83ccea6ba64184a8bb58))
+* **tests:** bump steady to v0.19.4 ([4c51998](https://github.com/phoebe-bird/phoebe-go/commit/4c519987d52f53635f81fc533cfffec3ff2e6f53))
+* **tests:** bump steady to v0.19.5 ([150008b](https://github.com/phoebe-bird/phoebe-go/commit/150008bd48e442912bae0922fec28929144dba56))
+* **tests:** bump steady to v0.19.6 ([acf361d](https://github.com/phoebe-bird/phoebe-go/commit/acf361d591d41d993563211de55aaeea3a8db6f5))
+* **tests:** bump steady to v0.19.7 ([eb491c5](https://github.com/phoebe-bird/phoebe-go/commit/eb491c58c7e5deea6346f57891c9d0dab1150dd1))
+
+
+### Refactors
+
+* **tests:** switch from prism to steady ([fd4b4bc](https://github.com/phoebe-bird/phoebe-go/commit/fd4b4bc5338e263bf7ef8c20a6fd4a80d8110b54))
+
 ## 0.1.0-alpha.19 (2026-03-17)
 
 Full Changelog: [v0.1.0-alpha.18...v0.1.0-alpha.19](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.18...v0.1.0-alpha.19)
