@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.1.0-alpha.22 (2026-04-28)
+
+Full Changelog: [v0.1.0-alpha.21...v0.1.0-alpha.22](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.21...v0.1.0-alpha.22)
+
+### Features
+
+* **go:** add default http client with timeout ([e94ff8e](https://github.com/phoebe-bird/phoebe-go/commit/e94ff8e221da5168a52897b07445b861b16e1ee3))
+* support setting headers via env ([a6ef232](https://github.com/phoebe-bird/phoebe-go/commit/a6ef232658c2faaabf3d067e9f1051955aa32932))
+
+
+### Chores
+
+* **ci:** support opting out of skipping builds on metadata-only commits ([1a872ca](https://github.com/phoebe-bird/phoebe-go/commit/1a872ca740edd5581ee7112d29a0a46a63b6d77d))
+* **internal:** more robust bootstrap script ([741bb9e](https://github.com/phoebe-bird/phoebe-go/commit/741bb9e9b2df3e25fa980440300326d69d1edcef))
+* **tests:** bump steady to v0.20.1 ([97d9fab](https://github.com/phoebe-bird/phoebe-go/commit/97d9fab80733abbdb904bbc8fbedc9cdc7f96133))
+* **tests:** bump steady to v0.20.2 ([ccbc14c](https://github.com/phoebe-bird/phoebe-go/commit/ccbc14cb64f36244aab0a1fe77b42c8f93f5bdd8))
+* **tests:** bump steady to v0.22.1 ([5a1e4ea](https://github.com/phoebe-bird/phoebe-go/commit/5a1e4ea60978fbb16204cc4a4b538f9daebe8a8c))
+
 ## 0.1.0-alpha.21 (2026-03-27)
 
 Full Changelog: [v0.1.0-alpha.20...v0.1.0-alpha.21](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.20...v0.1.0-alpha.21)
