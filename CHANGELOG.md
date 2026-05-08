@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0-alpha.23 (2026-05-08)
+
+Full Changelog: [v0.1.0-alpha.22...v0.1.0-alpha.23](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.22...v0.1.0-alpha.23)
+
+### Bug Fixes
+
+* **go:** avoid panic when http.DefaultTransport is wrapped ([36b09ad](https://github.com/phoebe-bird/phoebe-go/commit/36b09ad69867fb67b20e2abae6bd89dfa43e1292))
+
+
+### Chores
+
+* avoid embedding reflect.Type for dead code elimination ([24b42ca](https://github.com/phoebe-bird/phoebe-go/commit/24b42ca3d083724f20868065a1e2c1f3a3e54770))
+* redact api-key headers in debug logs ([f5f9f12](https://github.com/phoebe-bird/phoebe-go/commit/f5f9f12970f7cfa3f54239fc6d80fea3434957b8))
+
 ## 0.1.0-alpha.22 (2026-04-28)
 
 Full Changelog: [v0.1.0-alpha.21...v0.1.0-alpha.22](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.21...v0.1.0-alpha.22)
