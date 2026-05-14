@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.25 (2026-05-14)
+
+Full Changelog: [v0.1.0-alpha.24...v0.1.0-alpha.25](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.24...v0.1.0-alpha.25)
+
+### Chores
+
+* enable release-please ([cb23180](https://github.com/phoebe-bird/phoebe-go/commit/cb2318023bec63eef2a56dd59d475c9821d92180))
+* regenerate from phoebe-config[#2](https://github.com/phoebe-bird/phoebe-go/issues/2) ([679cd4c](https://github.com/phoebe-bird/phoebe-go/commit/679cd4ce0343b03d8ea29db7ea1ee41aa911d7b0))
+
 ## 0.1.0-alpha.24 (2026-05-13)
 
 Full Changelog: [v0.1.0-alpha.23...v0.1.0-alpha.24](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.23...v0.1.0-alpha.24)
