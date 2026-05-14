@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.0-alpha.24 (2026-05-13)
+
+Full Changelog: [v0.1.0-alpha.23...v0.1.0-alpha.24](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.23...v0.1.0-alpha.24)
+
 ## 0.1.0-alpha.23 (2026-05-08)
 
 Full Changelog: [v0.1.0-alpha.22...v0.1.0-alpha.23](https://github.com/phoebe-bird/phoebe-go/compare/v0.1.0-alpha.22...v0.1.0-alpha.23)
